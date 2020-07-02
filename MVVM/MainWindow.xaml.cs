@@ -23,6 +23,7 @@ namespace MVVM
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new TextVM();
         }
     }
 }
