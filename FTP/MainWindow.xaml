@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Height="30" Width="80" Content="上传" Click="Button_Click" Margin="5"/>
+            <Button Height="30" Width="80" Content="获取列表" Click="Button_Click_1"  Margin="5"/>
+            <Button Height="30" Width="80" Content="下载" Click="Button_Click_2"  Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
