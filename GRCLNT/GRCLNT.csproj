@@ -74,7 +74,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Resource\Comm\Bootstrapper.cs" />
+    <Compile Include="ViewModel\AdminMain\WndAdminMainViewModel.cs" />
     <Compile Include="ViewModel\Login\WndLoginViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\WndUserMainViewModel.cs" />
     <Compile Include="View\Login\PageLoginHomeView.xaml.cs">
       <DependentUpon>PageLoginHomeView.xaml</DependentUpon>
     </Compile>
@@ -146,8 +148,6 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Util\" />
-    <Folder Include="ViewModel\AdminMain\" />
-    <Folder Include="ViewModel\UserMain\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
