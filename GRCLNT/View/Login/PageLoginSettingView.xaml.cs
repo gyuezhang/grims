@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GRCLNT.View.Login
+namespace GRCLNT
 {
     /// <summary>
     /// PageLoginSettingView.xaml 的交互逻辑

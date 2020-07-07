@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GRCLNT.View.UserMain
+namespace GRCLNT
 {
     /// <summary>
     /// WndUserMainView.xaml 的交互逻辑
