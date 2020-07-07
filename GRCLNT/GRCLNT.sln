@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRCLNT", "GRCLNT.csproj", "{D31BC7F1-164F-41CF-824A-5B57BF0E3E6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D31BC7F1-164F-41CF-824A-5B57BF0E3E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31BC7F1-164F-41CF-824A-5B57BF0E3E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31BC7F1-164F-41CF-824A-5B57BF0E3E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31BC7F1-164F-41CF-824A-5B57BF0E3E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C65D55F-160D-4F3F-A72D-DE2F0BA3D9E8}
+	EndGlobalSection
+EndGlobal
