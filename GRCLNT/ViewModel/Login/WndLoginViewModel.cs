@@ -1,4 +1,5 @@
-﻿using Stylet;
+﻿using MaterialDesignThemes.Wpf;
+using Stylet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,25 @@ namespace GRCLNT
 {
     public class WndLoginViewModel : Screen
     {
+        public WndLoginViewModel()
+        {
+        }
+
         //UI Logic
         public int pageIndexBd { get; set; } = 0;
-        public bool CanSettingCmd => pageIndexBd == 0;
+        public PackIconKind sysPackIconBd { 
+            get 
+            {
+                return (pageIndexBd == 0) ? PackIconKind.Settings : PackIconKind.UndoVariant;
+            }
+            set
+            {
+                _ = (pageIndexBd == 0) ? PackIconKind.Settings : PackIconKind.UndoVariant; 
+            }
+        }
         public void SettingCmd()
         {
-            pageIndexBd = 1;
+            pageIndexBd = pageIndexBd == 1?0:1;
         }
         public void BackCmd()
         {

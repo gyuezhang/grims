@@ -33,23 +33,45 @@
                 <ImageBrush ImageSource="/GRCLNT;component/Resource/Image/bgleft.png" Opacity="0.4"/>
             </StackPanel.Background>
             <Image Source="/GRCLNT;component/Resource/Image/logo.png" Width="100" Margin="0,55,0,0">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
                 <Image.OpacityMask>
-                    <ImageBrush ImageSource="/GRCLNT;component/Resource/Image/logo.png" Opacity="0.82"/>
+                    <ImageBrush ImageSource="/GRCLNT;component/Resource/Image/logo.png" Opacity="0.9"/>
                 </Image.OpacityMask>
             </Image>
-            <TextBlock Text="宝坻区地下水资源" FontSize="24" HorizontalAlignment="Center" Margin="0,25,0,0" Foreground="#9BFFFFFF" />
-            <TextBlock Text="信息管理系统" FontSize="24" HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="#9BFFFFFF"/>
-            <TextBlock Text="Baodi District Groundwater Resources " FontSize="12" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#9BFFFFFF"/>
-            <TextBlock Text="Infomation Management System" FontSize="12" HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="#9BFFFFFF"/>
+            <TextBlock Text="宝坻区地下水资源" FontSize="24" HorizontalAlignment="Center" Margin="0,25,0,0" Foreground="White" Opacity="0.9" >
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="信息管理系统" FontSize="24" HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="White" Opacity="0.9">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Baodi District Groundwater Resources " FontSize="12" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="White" Opacity="0.9">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Infomation Management System" FontSize="12" HorizontalAlignment="Center" Margin="0,5,0,0" Foreground="White" Opacity="0.9">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
         </StackPanel>
 
         <!--中间过渡条-->
-        <materialDesign:Transitioner SelectedIndex="{Binding pageIndexBd}"  Grid.Column="1" DefaultTransitionOrigin="1, -1">
+        <materialDesign:Transitioner SelectedIndex="{Binding pageIndexBd}"  Grid.Column="1" DefaultTransitionOrigin="0, 0">
 
             <!--Index = 0-->
-            <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect None}">
+            <materialDesign:TransitionerSlide >
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
                 <materialDesign:TransitionerSlide.BackwardWipe>
-                    <materialDesign:CircleWipe/>
+                    <materialDesign:FadeWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
                 <Border Width="6"  Margin="0,0,0,0">
                     <Border.Background>
@@ -62,34 +84,41 @@
             </materialDesign:TransitionerSlide>
 
             <!--Index = 1-->
-            <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect None}">
+            <materialDesign:TransitionerSlide >
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
                 <materialDesign:TransitionerSlide.BackwardWipe>
-                    <materialDesign:CircleWipe/>
+                    <materialDesign:FadeWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
-                <Border Width="6"  Margin="0,0,0,0" Background="#86000000"/>
+                <Border Width="6"  Margin="0,0,0,0" Background="#66000000"/>
             </materialDesign:TransitionerSlide>
 
         </materialDesign:Transitioner>
 
         <!--右侧表单-->
-        <materialDesign:Transitioner SelectedIndex="{Binding pageIndexBd}"  Grid.Column="2" DefaultTransitionOrigin="1, -1">
+        <!--{Binding pageIndexBd}-->
+        <materialDesign:Transitioner SelectedIndex="{Binding pageIndexBd}"  Grid.Column="2" DefaultTransitionOrigin="0, 0">
 
             <!--Index = 0-->
-            <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect None}">
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
                 <materialDesign:TransitionerSlide.BackwardWipe>
-                    <materialDesign:CircleWipe/>
+                    <materialDesign:FadeWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" Height="372" VerticalAlignment="Bottom">
 
-                    <TextBlock Text="登  录" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,60,0,8" Opacity="0.92"/>
-                    <TextBlock Text="请使用您本人的账号密码登录" FontSize="14" HorizontalAlignment="Center" Foreground="#9BFFFFFF" Margin="116,0"/>
+                    <TextBlock Text="登  录" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,60,0,8" Opacity="0.9"/>
+                    <TextBlock Text="请使用您本人的账号密码登录" FontSize="14" HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,10" Opacity="0.8"/>
                     <Grid HorizontalAlignment="Center" Margin="0,5,0,0" Width="280">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="28"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon Grid.Column="0" Kind="User" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Foreground="White" Opacity="0.82"/>
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.Name,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" Margin="10,0,0,0" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="用户名" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+                        <materialDesign:PackIcon  Foreground="{Binding ElementName=usrName, Path=BorderBrush}" Grid.Column="0" Kind="User" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Opacity="0.8"/>
+                        <TextBox x:Name="usrName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.Name,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" Margin="10,0,0,0" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="用户名" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Opacity="0.9"/>
                     </Grid>
 
                     <Grid HorizontalAlignment="Center" Margin="0,5,0,0" Width="280">
@@ -97,66 +126,74 @@
                             <ColumnDefinition Width="28"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon Grid.Column="0" Kind="VpnKey" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Opacity="0.82"/>
-                        <PasswordBox   WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="1" Foreground="White" Margin="10,0,0,0" materialDesign:HintAssist.Hint="密   码" PasswordChanged="{s:Action pwdChangedCmd}"
-                             materialDesign:TextFieldAssist.UnderlineBrush="Green" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding curPwdBd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18"/>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="VpnKey" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Opacity="0.8"  Foreground="{Binding ElementName=pwdBox, Path=BorderBrush}"/>
+                        <PasswordBox x:Name="pwdBox"  WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="1" Foreground="White" Margin="10,0,0,0" materialDesign:HintAssist.Hint="密   码" PasswordChanged="{s:Action pwdChangedCmd}"
+                              local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding curPwdBd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18" Opacity="0.9"/>
                     </Grid>
 
-                    <Grid HorizontalAlignment="Center" Width="280" Margin="0,0,0,0">
+                    <Grid HorizontalAlignment="Center" Width="280" Margin="0,6,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="1"  IsChecked="{Binding cfgBd.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0" Opacity="0.82">
+                        <CheckBox Grid.Column="1"  IsChecked="{Binding cfgBd.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0" Opacity="0.9">
                             自动登录
                         </CheckBox>
-                        <CheckBox Grid.Column="0"  IsChecked="{Binding cfgBd.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0" Opacity="0.82">
+                        <CheckBox Grid.Column="0"  IsChecked="{Binding cfgBd.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0" Opacity="0.9">
                             记住密码
                         </CheckBox>
                     </Grid>
 
                     <Grid  HorizontalAlignment="Center" Width="280" Margin="0,20,0,0">
-                        <Button WindowChrome.IsHitTestVisibleInChrome="True"   FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"   Width="100"  Command="{s:Action LoginCmd}" Opacity="0.92">登 录</Button>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True"   FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"   Width="100"  Command="{s:Action LoginCmd}" Opacity="0.9">登 录</Button>
                     </Grid>
                 </StackPanel>
             </materialDesign:TransitionerSlide>
 
             <!--Index = 1-->
-            <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect None}">
+            <materialDesign:TransitionerSlide >
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:FadeWipe/>
+                </materialDesign:TransitionerSlide.ForwardWipe>
                 <materialDesign:TransitionerSlide.BackwardWipe>
-                    <materialDesign:CircleWipe/>
+                    <materialDesign:FadeWipe/>
                 </materialDesign:TransitionerSlide.BackwardWipe>
-                <StackPanel Orientation="Vertical" Background="#86000000">
-                    <TextBlock Text="登录设置" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,75,0,0"/>
 
-                    <Grid HorizontalAlignment="Center" Margin="0,55,0,0" Width="280">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="28"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon Grid.Column="0" Kind="Ip" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Foreground="White"/>
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.SvrIp,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" Margin="10,0,0,0" Foreground="White"  FontSize="18" materialDesign:HintAssist.Hint="服务器地址" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
-                    </Grid>
+                <StackPanel Orientation="Vertical" Background="#66000000">
+                    <TextBlock Text="服务器地址" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,60,0,8" Opacity="0.9"/>
 
-                    <Grid  HorizontalAlignment="Center" Width="280" Margin="0,20,0,0">
+                    <RadioButton Content="自动搜索" HorizontalAlignment="Left" IsChecked="True" GroupName="RGServer" Margin="71,15,40,15" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
+
+                    <RadioButton Margin="71,0" x:Name="manualRadioBtn"  HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Center" Content="手动输入" GroupName="RGServer" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
+
+                    <TextBox Margin="72,8,71,0" IsEnabled="{Binding  ElementName=manualRadioBtn, Path=IsChecked}" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.SvrIp,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True"   Foreground="White"  FontSize="18" materialDesign:HintAssist.Hint="当前服务器地址" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Opacity="0.9"/>
+
+                    <Grid  Margin="71,15,71,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center"   Width="100" Grid.Column="1"  Command="{s:Action BackCmd}">返 回</Button>
-                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"   Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center"   Width="100" Grid.Column="0"  Command="{s:Action TestLinkCmd}">测 试</Button>
+
+                        <materialDesign:Chip  Content="已连接" Grid.Column="0" VerticalAlignment="Center" Foreground="White" Opacity="0.9">
+                            <materialDesign:Chip.Icon>
+                                <materialDesign:PackIcon Kind="Link" Foreground="Green"/>
+                            </materialDesign:Chip.Icon>
+                        </materialDesign:Chip>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"   Width="100" Grid.Column="1"  Command="{s:Action BackCmd}" Opacity="0.9">确 定</Button>
+
                     </Grid>
                 </StackPanel>
+
             </materialDesign:TransitionerSlide>
 
         </materialDesign:Transitioner>
 
         <!--右上系统按钮-->
-        <StackPanel Orientation="Horizontal" Width="100" HorizontalAlignment="Right"  Grid.Column="2" VerticalAlignment="Top">
-            <Button Margin="15,10,0,10"  Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="32" Width="32" Command="{s:Action SettingCmd}" Opacity="0.92" >
-                <materialDesign:PackIcon    Kind="Settings"    Height="20"    Width="20" />
+        <StackPanel Orientation="Horizontal" Width="100" HorizontalAlignment="Right"  Grid.Column="2" VerticalAlignment="Top" Opacity="0.9">
+            <Button Margin="15,10,0,10"  Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="32" Width="32" Command="{s:Action SettingCmd}" Opacity="0.9" >
+                <materialDesign:PackIcon    Kind="{Binding sysPackIconBd}"    Height="20"    Width="20" />
             </Button>
-            <Button  Margin="10,10,0,10" Foreground="White"  WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="32"    Width="32" Command="{s:Action QuitCmd}" Opacity="0.92">
+            <Button  Margin="10,10,0,10" Foreground="White"  WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Height="32"    Width="32" Command="{s:Action QuitCmd}" Opacity="0.9">
                 <materialDesign:PackIcon    Kind="Close"    Height="20"    Width="20" />
             </Button>
         </StackPanel>
