@@ -51,6 +51,7 @@ namespace GRCLNT
 
         public void LoginCmd()
         {
+            LoginSuccess();
             if (strName == "admin")
                 OpenAdminMainViewModel();
             else
@@ -74,6 +75,14 @@ namespace GRCLNT
             var wndAdminMainViewModel = new WndAdminMainViewModel(_windowManager);
             this._windowManager.ShowWindow(wndAdminMainViewModel);
             this.RequestClose();
+        }
+
+
+        public MCfg cfgBd { get; set; } = Cfg.Get();
+
+        public void LoginSuccess()
+        {
+            Cfg.Set(cfgBd);
         }
     }
 }

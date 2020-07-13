@@ -90,6 +90,8 @@
     </ApplicationDefinition>
     <Compile Include="Resource\Comm\Bootstrapper.cs" />
     <Compile Include="Resource\Comm\PasswordHelper.cs" />
+    <Compile Include="Util\Cfg.cs" />
+    <Compile Include="Util\Enc.cs" />
     <Compile Include="ViewModel\AdminMain\WndAdminMainViewModel.cs" />
     <Compile Include="ViewModel\Login\WndLoginViewModel.cs" />
     <Compile Include="ViewModel\UserMain\WndUserMainViewModel.cs" />
@@ -153,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Util\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

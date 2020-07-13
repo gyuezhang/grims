@@ -118,8 +118,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon  Foreground="{Binding ElementName=usrName, Path=BorderBrush}" Grid.Column="0" Kind="User" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2" Opacity="0.8"/>
-                        <!--strName cfgBd.Name-->
-                        <TextBox x:Name="usrName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding strName,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" Margin="10,0,0,0" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="用户名" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Opacity="0.9"/>
+
+                        <TextBox x:Name="usrName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.Name,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" Margin="10,0,0,0" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="用户名" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Opacity="0.9"/>
                     </Grid>
 
                     <Grid HorizontalAlignment="Center" Margin="0,5,0,0" Width="280">
@@ -163,9 +163,9 @@
                 <StackPanel Orientation="Vertical" Background="#66000000">
                     <TextBlock Text="服务器地址" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,60,0,8" Opacity="0.9"/>
 
-                    <RadioButton Content="自动搜索" HorizontalAlignment="Left" IsChecked="True" GroupName="RGServer" Margin="71,15,40,15" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
+                    <RadioButton Content="自动搜索" HorizontalAlignment="Left" IsChecked="{Binding cfgBd.SvrMtd}" GroupName="RGServer" Margin="71,15,40,15" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
 
-                    <RadioButton Margin="71,0" x:Name="manualRadioBtn"  HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Center" Content="手动输入" GroupName="RGServer" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
+                    <RadioButton Margin="71,0" x:Name="manualRadioBtn" IsChecked="True"  HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Center" Content="手动输入" GroupName="RGServer" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource MaterialDesignRadioButton}" Foreground="White" Opacity="0.9" FontSize="18"/>
 
                     <TextBox Margin="72,8,71,0" IsEnabled="{Binding  ElementName=manualRadioBtn, Path=IsChecked}" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding cfgBd.SvrIp,UpdateSourceTrigger=PropertyChanged}" WindowChrome.IsHitTestVisibleInChrome="True"   Foreground="White"  FontSize="18" materialDesign:HintAssist.Hint="当前服务器地址" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Opacity="0.9"/>
 
