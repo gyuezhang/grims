@@ -9,5 +9,11 @@ namespace GRCLNT
 {
     public class WndAdminMainViewModel : Screen
     {
+        private IWindowManager _windowManager;
+
+        public WndAdminMainViewModel(IWindowManager windowManager)
+        {
+            _windowManager = windowManager;
+        }
     }
 }

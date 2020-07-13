@@ -10,12 +10,16 @@ namespace GRCLNT
 {
     public class WndLoginViewModel : Screen
     {
-        public WndLoginViewModel()
+        private IWindowManager _windowManager;
+
+        public WndLoginViewModel(IWindowManager windowManager)
         {
+            _windowManager = windowManager;
         }
 
         //UI Logic
         public int pageIndexBd { get; set; } = 0;
+        public string strName { get; set; }
         public PackIconKind sysPackIconBd { 
             get 
             {
@@ -47,12 +51,29 @@ namespace GRCLNT
 
         public void LoginCmd()
         {
-
+            if (strName == "admin")
+                OpenAdminMainViewModel();
+            else
+                OpenUserMainViewModel();
         }
 
         public void TestLinkCmd()
         {
 
+        }
+
+        //
+        public void OpenUserMainViewModel()
+        {
+            var wndUserMainViewModel = new WndUserMainViewModel(_windowManager);
+            this._windowManager.ShowWindow(wndUserMainViewModel);
+            this.RequestClose();
+        }
+        public void OpenAdminMainViewModel()
+        {
+            var wndAdminMainViewModel = new WndAdminMainViewModel(_windowManager);
+            this._windowManager.ShowWindow(wndAdminMainViewModel);
+            this.RequestClose();
         }
     }
 }
