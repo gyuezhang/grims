@@ -1,25 +1,52 @@
-﻿using System;
+﻿using SuperSocket.SocketBase;
+using SuperSocket.SocketEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GRSVR
 {
-    static class Program
+    class Program
     {
-        /// <summary>
-        /// 应用程序的主入口点。
-        /// </summary>
-        static void Main()
+        static void Main(string[] args)
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            var bootstrap = BootstrapFactory.CreateBootstrap();
+
+            if (!bootstrap.Initialize())
             {
-                new Service1()
-            };
-            ServiceBase.Run(ServicesToRun);
+                Console.WriteLine("Failed to initialize!");
+                Console.ReadKey();
+                return;
+            }
+
+            var result = bootstrap.Start();
+
+            Console.WriteLine("Start result: {0}!", result);
+
+            if (result == StartResult.Failed)
+            {
+                Console.WriteLine("Failed to start!");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("Press key 'q' to stop it!");
+
+            while (Console.ReadKey().KeyChar != 'q')
+            {
+                Console.WriteLine();
+                continue;
+            }
+
+            Console.WriteLine();
+
+            //Stop the appServer
+            bootstrap.Stop();
+
+            Console.WriteLine("The server was stopped!");
+            Console.ReadKey();
         }
     }
 }
