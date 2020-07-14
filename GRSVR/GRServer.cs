@@ -10,7 +10,7 @@ namespace GRSVR
         public GRServer()
             : base(new TerminatorReceiveFilterFactory("\r\n", Encoding.UTF8))
         {
-            
+            GRDb.ConnDbSvr("localhost", 3306, "root", "123456");
         }
 
         protected override bool Setup(IRootConfig rootConfig, IServerConfig config)
