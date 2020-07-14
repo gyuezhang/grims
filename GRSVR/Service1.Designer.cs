@@ -1,4 +1,4 @@
-﻿namespace GRSvr
+﻿namespace GRSVR
 {
     partial class Service1
     {
