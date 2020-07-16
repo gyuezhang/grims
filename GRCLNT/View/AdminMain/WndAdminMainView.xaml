@@ -346,7 +346,7 @@
                 </Border>
                 <Grid Grid.Row="0" Grid.RowSpan="2">
                     <ContentControl  s:View.Model="{Binding mainVmBd}" />
-                    <Image Visibility="{Binding dragImgVisibilityBd}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRBM;component/Resource/Image/resize-bottom-right.png"/>
+                    <Image Visibility="{Binding dragImgVisibilityBd}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="400">
                         <materialDesign:Snackbar  MessageQueue="{Binding messageQueueBd}"/>
                     </StackPanel>
