@@ -175,12 +175,12 @@
                             <ColumnDefinition Width="5*"/>
                         </Grid.ColumnDefinitions>
 
-                        <materialDesign:Chip  Content="已连接" Grid.Column="0" VerticalAlignment="Center" Foreground="White" Opacity="0.9">
+                        <materialDesign:Chip  Content="{Binding linkStateTextBd}" Grid.Column="0" VerticalAlignment="Center" Foreground="White" Opacity="0.9">
                             <materialDesign:Chip.Icon>
-                                <materialDesign:PackIcon Kind="Link" Foreground="Green"/>
+                                <materialDesign:PackIcon Kind="Link" Foreground="{Binding linkStateColorBd}"/>
                             </materialDesign:Chip.Icon>
                         </materialDesign:Chip>
-                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"   Width="100" Grid.Column="1"  Command="{s:Action BackCmd}" Opacity="0.9">确 定</Button>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Right"   Width="100" Grid.Column="1"  Command="{s:Action TestLinkCmd}" Opacity="0.9">确 定</Button>
 
                     </Grid>
                 </StackPanel>
@@ -201,7 +201,7 @@
 
         <!--底部普通消息提示-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="Auto">
-            <materialDesign:Snackbar  MessageQueue="{Binding messageQueueBd}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}"  Height="55" Background="#44000000" />
+            <materialDesign:Snackbar  MessageQueue="{Binding messageQueueBd}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}"  WindowChrome.IsHitTestVisibleInChrome="True"  Height="55" Background="#44000000" />
         </StackPanel>
 
     </Grid>
