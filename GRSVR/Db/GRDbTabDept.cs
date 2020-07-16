@@ -15,6 +15,14 @@ namespace GRSVR
                                                             "primary key(id)," +
                                                             "foreign key(avator) references grims.file(id)" +
                                                             ") default charset=utf8mb4;");
+            Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.dept;");
+            if (QRes.Item1)
+            {
+                if (!QRes.Item2.HasRows)
+                {
+                    GRDb.Exec("insert into grims.dept (id,name,avator) values('-1','admin','-1');");
+                }
+            }
         }
     }
 }

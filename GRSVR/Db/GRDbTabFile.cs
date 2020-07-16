@@ -16,6 +16,14 @@ namespace GRSVR
                                                    "type int," +    /*0:avator 1:*/
                                                    "primary key(id)" +
                                                    ") default charset=utf8mb4;");
+            Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.file;");
+            if (QRes.Item1)
+            {
+                if (!QRes.Item2.HasRows)
+                {
+                    GRDb.Exec("insert into grims.file (id,md5) values('-1','" + Enc.GetMd5Hash("0") + "');");
+                }
+            }
         }
     }
 }
