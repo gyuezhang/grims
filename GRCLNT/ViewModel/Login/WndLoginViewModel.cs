@@ -15,6 +15,24 @@ namespace GRCLNT
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
+
+            GRSocketHandler.ConnState += GRSocketHandler_ConnState;
+            GRSocket.Conn(cfgBd.SvrIp);
+        }
+        public SnackbarMessageQueue messageQueueBd { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
+
+        private void GRSocketHandler_ConnState(ApiRes state)
+        {
+            switch (state)
+            {
+                case ApiRes.OK:
+                    messageQueueBd.Enqueue("已成功连接到服务器");
+                    break;
+                case ApiRes.FAILED:
+                    break;
+                default:
+                    break;
+            }
         }
 
         //UI Logic
