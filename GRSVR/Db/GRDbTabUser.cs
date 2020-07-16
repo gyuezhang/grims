@@ -31,5 +31,18 @@ namespace GRSVR
                 }
             }
         }
+
+        public static Tuple<bool, string> AdminLogin(string pwd)
+        {
+            Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.user where id='-1';");
+            if (!QRes.Item1)
+                return new Tuple<bool, string>(QRes.Item1, QRes.Item3);
+
+            QRes.Item2.Read();
+            if (pwd == QRes.Item2.GetString("pwd"))
+                return new Tuple<bool, string>(true, null);
+            else
+                return new Tuple<bool, string>(false, "ErrorPwd");
+        }
     }
 }

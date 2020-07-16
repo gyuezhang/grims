@@ -24,7 +24,18 @@ namespace GRSVR
     {
         public const string RESTMNT = "<RESTMNT>";
         public int userId = -1;
+        public void Send(ApiId apiId, ApiRes res, string json, string exLog)
+        {
+            //Send
+            string strMsg;
 
+            if (json == null || json.Length == 0)
+                strMsg = apiId.ToString() + " " + res.ToString();
+            else
+                strMsg = apiId.ToString() + " " + res.ToString() + " " + json;
+            strMsg += RESTMNT;
+            base.Send(strMsg);
+                    }
         protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
         {
             base.HandleUnknownRequest(requestInfo);
@@ -32,7 +43,7 @@ namespace GRSVR
 
         protected override void OnSessionStarted()
         {
-            
+            this.Send(ApiId.Conn, ApiRes.OK, null, null);
         }
     }
 }
