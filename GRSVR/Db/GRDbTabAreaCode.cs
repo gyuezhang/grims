@@ -8,12 +8,11 @@ namespace GRSVR
         public static void InitTab()
         {
             GRDb.Exec("create table if not exists grims.areacode( " +
-                   "id int auto_increment," +
                    "code bigint," +
                    "pcode bigint ," +
                    "level int," +
                    "name varchar(255)," +
-                   "primary key(id)" +
+                   "primary key(code)" +
                    ") default charset=utf8mb4;");
 
             Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.areacode;");
