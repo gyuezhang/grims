@@ -142,6 +142,9 @@
     <Compile Include="Db\GRDbTabWell.cs" />
     <Compile Include="GRServer.cs" />
     <Compile Include="Model\ApiDef.cs" />
+    <Compile Include="Model\Authority.cs" />
+    <Compile Include="Model\Dept.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Enc.cs" />

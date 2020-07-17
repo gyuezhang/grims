@@ -23,7 +23,7 @@ namespace GRSVR
     public class GRSession : AppSession<GRSession>
     {
         public const string RESTMNT = "<RESTMNT>";
-        public int userId = -1;
+        public int userId = 0;
         public void Send(ApiId apiId, ApiRes res, string json, string exLog)
         {
             //Send
@@ -35,7 +35,8 @@ namespace GRSVR
                 strMsg = apiId.ToString() + " " + res.ToString() + " " + json;
             strMsg += RESTMNT;
             base.Send(strMsg);
-                    }
+        }
+
         protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
         {
             base.HandleUnknownRequest(requestInfo);

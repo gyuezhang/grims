@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 
 namespace GRSVR
 {
@@ -56,6 +57,81 @@ namespace GRSVR
                 return GRDb.Exec("update grims.user set pwd='" + newPwd + "' where id = '-1';");
             else
                 return new Tuple<bool, string>(false, "ErrorPwd");
+        }
+
+        public static Tuple<bool, string> Add(User user)
+        {
+            string cmd = "insert into grims.user (deptid,name,passwd,birthday,sex,avator,email,tel,remark) values('" + user.deptid + "'" +
+                    ",'" + user.name +
+                    "','" + user.passwd +
+                    "','" + user.birthday.Date +
+                    "','" + user.sex +
+                    "','" + user.avator +
+                    "','" + user.email +
+                    "','" + user.tel +
+                    "','" + user.remark +
+                    "');";
+            return GRDb.Exec(cmd);
+        }
+
+        public static Tuple<bool, string> Del(int id)
+        {
+            return GRDb.Exec("delete from grims.user where id='" + id.ToString() + "'");
+        }
+
+        public static Tuple<bool, string> Edt(User user)
+        {
+            return GRDb.Exec("update grims.user set deptid='" + user.deptid +
+                "',name='" + user.name +
+                "',passwd='" + user.passwd +
+                "',birthday='" + user.birthday +
+                "',sex='" + user.sex +
+                "',avator='" + user.avator +
+                "',email='" + user.email +
+                "',tel='" + user.tel +
+                "',remark='" + user.remark +
+                "' where id='" + 
+                user.id + "';");
+        }
+
+        public static Tuple<bool, List<User>, string> Get()
+        {
+            List<User> res = new List<User>();
+            Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.user;");
+            if (!QRes.Item1)
+            {
+                return new Tuple<bool, List<User>, string>(false, null, QRes.Item3);
+            }
+
+            while (QRes.Item2.Read())
+            {
+                User tmp = new User();
+                tmp.id = QRes.Item2.GetInt32("id");
+                tmp.deptid = QRes.Item2.GetInt32("deptid");
+                tmp.name = QRes.Item2.GetString("name");
+                tmp.passwd = QRes.Item2.GetString("passwd");
+                tmp.birthday = QRes.Item2.GetDateTime("birthday");
+                tmp.sex = QRes.Item2.GetBoolean("sex");
+                tmp.avator = QRes.Item2.GetInt32("avator");
+                tmp.email = QRes.Item2.GetString("email");
+                tmp.tel = QRes.Item2.GetString("tel");
+                tmp.remark = QRes.Item2.GetString("remark");
+                res.Add(tmp);
+            }
+            return new Tuple<bool, List<User>, string>(true, res, null);
+        }
+
+        public static bool Login(string Name, string Pwd)
+        {
+            List<User> res = Get().Item2;
+            foreach (User usr in res)
+            {
+                if (Name == usr.name && Pwd == usr.passwd)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
