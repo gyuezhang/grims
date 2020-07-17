@@ -44,5 +44,18 @@ namespace GRSVR
             else
                 return new Tuple<bool, string>(false, "ErrorPwd");
         }
+
+        public static Tuple<bool, string> AdminResetPwd(string oldPwd, string newPwd)
+        {
+            Tuple<bool, MySqlDataReader, string> QRes = GRDb.Query("select * from grims.user where id = '-1';");
+            if (!QRes.Item1)
+                return new Tuple<bool, string>(QRes.Item1, QRes.Item3);
+
+            QRes.Item2.Read();
+            if (oldPwd == QRes.Item2.GetString("pwd"))
+                return GRDb.Exec("update grims.user set pwd='" + newPwd + "' where id = '-1';");
+            else
+                return new Tuple<bool, string>(false, "ErrorPwd");
+        }
     }
 }

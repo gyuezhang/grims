@@ -176,7 +176,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ApiDef.cs" />
+    <Compile Include="Util\ApiDef.cs" />
     <Compile Include="Resource\Comm\Bootstrapper.cs" />
     <Compile Include="Resource\Comm\PasswordHelper.cs" />
     <Compile Include="Socket\GRSocket.cs" />
@@ -185,15 +185,56 @@
     <Compile Include="Socket\GRSocketHandler.cs" />
     <Compile Include="Util\Cfg.cs" />
     <Compile Include="Util\Enc.cs" />
+    <Compile Include="Util\UIDef.cs" />
+    <Compile Include="ViewModel\AdminMain\PageAdminAnmMngViewModel.cs" />
+    <Compile Include="ViewModel\AdminMain\PageAdminDashboardViewModel.cs" />
+    <Compile Include="ViewModel\AdminMain\PageAdminGroupMngViewModel.cs" />
+    <Compile Include="ViewModel\AdminMain\PageAdminLogMngViewModel.cs" />
+    <Compile Include="ViewModel\AdminMain\PageAdminSettingViewModel.cs" />
     <Compile Include="ViewModel\AdminMain\WndAdminMainViewModel.cs" />
     <Compile Include="ViewModel\Login\WndLoginViewModel.cs" />
     <Compile Include="ViewModel\UserMain\WndUserMainViewModel.cs" />
+    <Compile Include="View\AdminMain\PageAdminAnmMngView.xaml.cs">
+      <DependentUpon>PageAdminAnmMngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMain\PageAdminDashboardView.xaml.cs">
+      <DependentUpon>PageAdminDashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMain\PageAdminGroupMngView.xaml.cs">
+      <DependentUpon>PageAdminGroupMngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMain\PageAdminLogMngView.xaml.cs">
+      <DependentUpon>PageAdminLogMngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMain\PageAdminSettingView.xaml.cs">
+      <DependentUpon>PageAdminSettingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserMain\WndUserMainView.xaml.cs">
       <DependentUpon>WndUserMainView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resource\Style\DefaultStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AdminMain\PageAdminAnmMngView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMain\PageAdminDashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMain\PageAdminGroupMngView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMain\PageAdminLogMngView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMain\PageAdminSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminMain\WndAdminMainView.xaml">
       <SubType>Designer</SubType>
@@ -272,6 +313,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

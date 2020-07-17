@@ -27,6 +27,9 @@ namespace GRCLNT
                     case ApiId.AdminLogin:
                         GRSocketHandler.OnAdminLogin(request);
                         break;
+                    case ApiId.AdminResetPwd:
+                        GRSocketHandler.OnAdminResetPwd(request);
+                        break;
                     default:
                         break;
                 }

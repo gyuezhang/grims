@@ -20,5 +20,12 @@ namespace GRCLNT
         {
             adminLogin(request.resState);
         }
+
+        public delegate void AdminResetPwdEventHandler(ApiRes state);
+        public static event AdminResetPwdEventHandler adminResetPwd;
+        public static void OnAdminResetPwd(GRSocketStringPackageInfo request)
+        {
+            adminResetPwd(request.resState);
+        }
     }
 }

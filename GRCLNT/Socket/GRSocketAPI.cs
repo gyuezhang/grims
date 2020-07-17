@@ -10,5 +10,9 @@ namespace GRCLNT
         {
             GRSocket.Send(ApiId.AdminLogin, JsonConvert.SerializeObject(pwd));
         }
+        public static void AdminResetPwd(string oldPwd, string newPwd)
+        {
+            GRSocket.Send(ApiId.AdminResetPwd, JsonConvert.SerializeObject(new Tuple<string, string>(oldPwd, newPwd)));
+        }
     }
 }

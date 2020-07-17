@@ -12,7 +12,7 @@
         Height="710" Width="1350" MinHeight="710" MinWidth="1350"
         MaxHeight="{Binding maxHeightBd}" MaxWidth="{Binding maxWidthBd}"
         WindowState="{Binding windowStateBd, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-        StateChanged="{s:Action stateChangeCmd}"
+        StateChanged="{s:Action StateChangedCmd}"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <!--窗体边界-->

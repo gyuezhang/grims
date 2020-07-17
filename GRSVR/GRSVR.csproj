@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\User\AdminLogin.cs" />
+    <Compile Include="Api\User\AdminResetPwd.cs" />
     <Compile Include="Db\GRDb.cs" />
     <Compile Include="Db\GRDbTabAnm.cs" />
     <Compile Include="Db\GRDbTabAreaCode.cs" />
