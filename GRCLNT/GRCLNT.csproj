@@ -176,6 +176,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Authority.cs" />
+    <Compile Include="Model\Dept.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Util\ApiDef.cs" />
     <Compile Include="Resource\Comm\Bootstrapper.cs" />
     <Compile Include="Resource\Comm\PasswordHelper.cs" />
@@ -314,9 +317,7 @@
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

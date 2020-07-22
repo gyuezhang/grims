@@ -10,5 +10,24 @@ namespace GRCLNT
         }
         private WndAdminMainViewModel wndMainVM { get; set; }
 
+        public void AddDeptCmd()
+        {
+
+        }
+
+        public void DelDeptCmd()
+        {
+
+        }
+
+        public void EdtDeptCmd()
+        {
+
+        }
+
+        public void AddUserCmd()
+        {
+
+        }
     }
 }

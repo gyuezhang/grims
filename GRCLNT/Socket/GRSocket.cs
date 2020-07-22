@@ -30,6 +30,48 @@ namespace GRCLNT
                     case ApiId.AdminResetPwd:
                         GRSocketHandler.OnAdminResetPwd(request);
                         break;
+                    case ApiId.AddDept:
+                        GRSocketHandler.OnAddDept(request);
+                        break;
+                    case ApiId.DelDept:
+                        GRSocketHandler.OnDelDept(request);
+                        break;
+                    case ApiId.EdtDept:
+                        GRSocketHandler.OnEdtDept(request);
+                        break;
+                    case ApiId.GetDepts:
+                        GRSocketHandler.OnGetDepts(request);
+                        break;
+                    case ApiId.AddUser:
+                        GRSocketHandler.OnAddUser(request);
+                        break;
+                    case ApiId.DelUser:
+                        GRSocketHandler.OnDelUser(request);
+                        break;
+                    case ApiId.EdtUser:
+                        GRSocketHandler.OnEdtUser(request);
+                        break;
+                    case ApiId.GetUsers:
+                        GRSocketHandler.OnGetUsers(request);
+                        break;
+                    case ApiId.Login:
+                        GRSocketHandler.OnLogin(request);
+                        break;
+                    case ApiId.AddDeptAuthority:
+                        GRSocketHandler.OnAddDeptAuthority(request);
+                        break;
+                    case ApiId.AddUserAuthority:
+                        GRSocketHandler.OnAddUserAuthority(request);
+                        break;
+                    case ApiId.DelAuthority:
+                        GRSocketHandler.OnDelAuthority(request);
+                        break;
+                    case ApiId.GetUserAuthorities:
+                        GRSocketHandler.OnGetUserAuthorities(request);
+                        break;
+                    case ApiId.GetDeptAuthorities:
+                        GRSocketHandler.OnGetDeptAuthorities(request);
+                        break;
                     default:
                         break;
                 }
