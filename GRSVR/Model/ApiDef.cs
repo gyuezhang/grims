@@ -15,9 +15,11 @@
         GetUsers = 10,
         Login = 11,
         ResetPwd = 12,
-        AddAuthority=13,
-        DelAuthority=14,
-        GetAuthority=15,
+        AddDeptAuthority=13,
+        AddUserAuthority = 14,
+        DelAuthority =15,
+        GetUserAuthorities=16,
+        GetDeptAuthorities = 17,
     }
     public enum ApiRes
     {

@@ -121,17 +121,17 @@ namespace GRSVR
             return new Tuple<bool, List<User>, string>(true, res, null);
         }
 
-        public static bool Login(string Name, string Pwd)
+        public static Tuple<bool, string> Login(string Name, string Pwd)
         {
             List<User> res = Get().Item2;
             foreach (User usr in res)
             {
                 if (Name == usr.name && Pwd == usr.passwd)
                 {
-                    return true;
+                    return new Tuple<bool, string>(true, null);
                 }
             }
-            return false;
+            return new Tuple<bool, string>(false, "ErrorPwd");
         }
     }
 }

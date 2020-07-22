@@ -14,8 +14,8 @@ namespace GRSVR
 
         public override void ExecuteCommand(GRSession session, StringRequestInfo requestInfo)
         {
-            Tuple<string, string> resetPwdInputs = JsonConvert.DeserializeObject<Tuple<string, string>>(string.Join("", requestInfo.Parameters));
-            Tuple<bool, string> dbRes = GRDbTabUser.Add(resetPwdInputs.Item1, resetPwdInputs.Item2);
+            User user = JsonConvert.DeserializeObject<User>(string.Join("", requestInfo.Parameters));
+            Tuple<bool, string> dbRes = GRDbTabUser.Add(user);
 
             if (dbRes.Item1)
             {

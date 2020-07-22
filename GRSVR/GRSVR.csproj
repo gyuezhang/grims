@@ -128,9 +128,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\User\AddAuthority.cs" />
+    <Compile Include="Api\User\AddDeptAuthority.cs" />
     <Compile Include="Api\User\AddDept.cs" />
     <Compile Include="Api\User\AddUser.cs" />
+    <Compile Include="Api\User\AddUserAuthority.cs" />
     <Compile Include="Api\User\AdminLogin.cs" />
     <Compile Include="Api\User\AdminResetPwd.cs" />
     <Compile Include="Api\User\DelAuthority.cs" />
@@ -138,7 +139,8 @@
     <Compile Include="Api\User\DelUser.cs" />
     <Compile Include="Api\User\EdtDept.cs" />
     <Compile Include="Api\User\EdtUser.cs" />
-    <Compile Include="Api\User\GetAuthories.cs" />
+    <Compile Include="Api\User\GetDeptAuthorities.cs" />
+    <Compile Include="Api\User\GetUserAuthories.cs" />
     <Compile Include="Api\User\GetDepts.cs" />
     <Compile Include="Api\User\GetUsers.cs" />
     <Compile Include="Api\User\Login.cs" />
