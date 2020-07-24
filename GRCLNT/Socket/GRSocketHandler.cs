@@ -10,7 +10,12 @@ namespace GRCLNT
         public static event ConnStateEventHandler ConnState;
         public static void OnConnState(GRSocketStringPackageInfo request)
         {
-            ConnState(request.resState);
+            if(ConnState == null)
+            {
+                GRSocket.Conn(Cfg.Get().SvrIp);
+            }
+            else
+                ConnState(request.resState);
         }
 
         //ADMIN

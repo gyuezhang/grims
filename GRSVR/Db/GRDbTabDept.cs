@@ -21,14 +21,14 @@ namespace GRSVR
             {
                 if (!QRes.Item2.HasRows)
                 {
-                    GRDb.Exec("insert into grims.dept (id,name,avator) values('-1','admin','-1');");
+                    GRDb.Exec("insert into grims.dept (id,name,avator,remark) values('-1','admin','-1',' ');");
                 }
             }
         }
 
         public static Tuple<bool, string> Add(Dept dept)
         {
-            return GRDb.Exec("insert into grims.dept (deptname,avator,remark) values('" + dept.name + "','" + dept.avator + "','" + dept.remark + ");");
+            return GRDb.Exec("insert into grims.dept (name,avator,remark) values('" + dept.name + "','" + dept.avator + "','" + dept.remark + "');");
         }
         public static Tuple<bool, string> Del(int id)
         {
@@ -45,14 +45,22 @@ namespace GRSVR
                 return new Tuple<bool, List<Dept>, string>(QRes.Item1, null, QRes.Item3);
 
             List<Dept> res = new List<Dept>();
-            while (QRes.Item2.Read())
+            try
             {
-                Dept tmpDept = new Dept();
-                tmpDept.id = QRes.Item2.GetInt32("id");
-                tmpDept.name = QRes.Item2.GetString("name");
-                tmpDept.avator = QRes.Item2.GetInt32("avator");
-                tmpDept.remark = QRes.Item2.GetString("remark");
-                res.Add(tmpDept);
+                while (QRes.Item2.Read())
+                {
+                    Dept tmpDept = new Dept();
+                    tmpDept.id = QRes.Item2.GetInt32("id");
+                    tmpDept.name = QRes.Item2.GetString("name");
+                    tmpDept.avator = QRes.Item2.GetInt32("avator");
+                    tmpDept.remark = QRes.Item2.GetString("remark");
+                    res.Add(tmpDept);
+                }
+            }
+            catch (Exception e)
+            {
+                string a = e.ToString();
+                string b = e.Message;
             }
             return new Tuple<bool, List<Dept>, string>(true, res, null);
 

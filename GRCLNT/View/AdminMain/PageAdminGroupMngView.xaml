@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="添加部门" Margin="5" Command="{s:Action AddDeptCmd}"/>
+            <Button Content="添加部门" Margin="5" Command="{s:Action GetDepts}"/>
             <Button Content="添加用户" Margin="5" Command="{s:Action AddUserCmd}"/>
         </StackPanel>
         <Grid Grid.Row="1">

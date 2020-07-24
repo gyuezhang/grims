@@ -16,7 +16,7 @@ namespace GRSVR
         {
             Dept dept = JsonConvert.DeserializeObject<Dept>(string.Join("", requestInfo.Parameters));
             Tuple<bool, string> dbRes = GRDbTabDept.Add(dept);
-
+            
             if (dbRes.Item1)
             {
                 session.Send(ApiId.AddDept, ApiRes.OK, null, null);
