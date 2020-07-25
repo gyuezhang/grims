@@ -61,11 +61,12 @@ namespace GRSVR
 
         public static Tuple<bool, string> Add(User user)
         {
-            string cmd = "insert into grims.user (deptid,name,passwd,birthday,sex,avator,email,tel,remark) values('" + user.deptid + "'" +
+            int i = user.sex ? 0 : 1;
+            string cmd = "insert into grims.user (deptid,name,pwd,birthday,sex,avator,email,tel,remark) values('" + user.deptid + "'" +
                     ",'" + user.name +
                     "','" + user.passwd +
                     "','" + user.birthday.Date +
-                    "','" + user.sex +
+                    "','" + i +
                     "','" + user.avator +
                     "','" + user.email +
                     "','" + user.tel +
@@ -83,7 +84,7 @@ namespace GRSVR
         {
             return GRDb.Exec("update grims.user set deptid='" + user.deptid +
                 "',name='" + user.name +
-                "',passwd='" + user.passwd +
+                "',pwd='" + user.passwd +
                 "',birthday='" + user.birthday +
                 "',sex='" + user.sex +
                 "',avator='" + user.avator +
@@ -109,7 +110,7 @@ namespace GRSVR
                 tmp.id = QRes.Item2.GetInt32("id");
                 tmp.deptid = QRes.Item2.GetInt32("deptid");
                 tmp.name = QRes.Item2.GetString("name");
-                tmp.passwd = QRes.Item2.GetString("passwd");
+                tmp.passwd = QRes.Item2.GetString("pwd");
                 tmp.birthday = QRes.Item2.GetDateTime("birthday");
                 tmp.sex = QRes.Item2.GetBoolean("sex");
                 tmp.avator = QRes.Item2.GetInt32("avator");

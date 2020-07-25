@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="GRCLNT.PageAdminGroupMngDeptView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GRCLNT"
+             xmlns:s="https://github.com/canton7/Stylet"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance local:PageAdminGroupMngViewModel}"  
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBox materialDesign:HintAssist.Hint="部门名称" Text="{Binding cDeptBd.name,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="头像" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
+                <Image Source="/GRCLNT;component/Resource/Image/dept.png" Width="40" Height="40"/>
+                <TextBlock Text="{Binding cDeptDefaultAvatorBd}" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
+                <Button Content="浏览" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
+                <Button Content="上传" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
+            </StackPanel>
+            <TextBox Text="{Binding cDeptBd.remark}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="备注" Foreground="White" Margin="25,5" FontSize="18" />
+            <StackPanel Orientation="Vertical">
+                <Button Content="添加部门" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddDeptCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+            </StackPanel>
+        </StackPanel>   
+    </Grid>
+</UserControl>

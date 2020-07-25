@@ -15,8 +15,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="添加部门" Margin="5" Command="{s:Action GetDepts}"/>
-            <Button Content="添加用户" Margin="5" Command="{s:Action AddUserCmd}"/>
+            <Button Content="添加部门" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="0"/>
+            <Button Content="添加用户" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="1"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -27,33 +27,11 @@
                 
             </TreeView>
             <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="6*"/>
-                    <RowDefinition Height="4*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Row="0" Background="Red" Margin="5">
-                    
-                </StackPanel>
-                <Grid Grid.Row="1" Margin="5" Background="Green">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                </Grid>
+                <materialDesign:Transitioner SelectedIndex="{Binding addPageBd}">
+                    <local:PageAdminGroupMngDeptView/>
+
+                    <local:PageAdminGroupMngUserView/>
+                </materialDesign:Transitioner>
             </Grid>
         </Grid>
     </Grid>
