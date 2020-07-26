@@ -28,7 +28,7 @@ namespace GRSVR
             {
                 if (!QRes.Item2.HasRows)
                 {
-                    GRDb.Exec("insert into grims.user (id,deptid,name,pwd,avator) values('-1','-1','admin','" + Enc.GetMd5Hash("123456") + "','-1');");
+                    GRDb.Exec("insert into grims.user (id,deptid,name,pwd,avator,birthday) values('-1','-1','admin','" + Enc.GetMd5Hash("123456") + "','-1','"+ System.DateTime.Today.ToShortDateString().ToString() + "');");
                 }
             }
         }
@@ -109,14 +109,38 @@ namespace GRSVR
                 User tmp = new User();
                 tmp.id = QRes.Item2.GetInt32("id");
                 tmp.deptid = QRes.Item2.GetInt32("deptid");
-                tmp.name = QRes.Item2.GetString("name");
-                tmp.passwd = QRes.Item2.GetString("pwd");
-                tmp.birthday = QRes.Item2.GetDateTime("birthday");
-                tmp.sex = QRes.Item2.GetBoolean("sex");
-                tmp.avator = QRes.Item2.GetInt32("avator");
-                tmp.email = QRes.Item2.GetString("email");
-                tmp.tel = QRes.Item2.GetString("tel");
-                tmp.remark = QRes.Item2.GetString("remark");
+                if (!QRes.Item2.IsDBNull(2))
+                {
+                    tmp.name = QRes.Item2.GetString("name");
+                }
+                if (!QRes.Item2.IsDBNull(3))
+                {
+                    tmp.passwd = QRes.Item2.GetString("pwd");
+                }
+                if (!QRes.Item2.IsDBNull(4))
+                {
+                    tmp.birthday = QRes.Item2.GetDateTime("birthday");
+                }
+                if (!QRes.Item2.IsDBNull(5))
+                {
+                    tmp.sex = QRes.Item2.GetBoolean("sex");
+                }
+                if (!QRes.Item2.IsDBNull(6))
+                {
+                    tmp.avator = QRes.Item2.GetInt32("avator");
+                }
+                if (!QRes.Item2.IsDBNull(7))
+                {
+                    tmp.email = QRes.Item2.GetString("email");
+                }
+                if (!QRes.Item2.IsDBNull(8))
+                {
+                    tmp.tel = QRes.Item2.GetString("tel");
+                }
+                if (!QRes.Item2.IsDBNull(9))
+                {
+                    tmp.remark = QRes.Item2.GetString("remark");
+                }
                 res.Add(tmp);
             }
             return new Tuple<bool, List<User>, string>(true, res, null);

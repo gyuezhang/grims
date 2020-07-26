@@ -8,7 +8,9 @@ namespace GRCLNT
         public PageAdminGroupMngViewModel(WndAdminMainViewModel _wndMainVM)
         {
             wndMainVM = _wndMainVM;
+            groupTvBd.Add(new GroupTvNode());
             GetDepts();
+            GetUsers();
         }
         private WndAdminMainViewModel wndMainVM { get; set; }
 
@@ -95,7 +97,7 @@ namespace GRCLNT
 
         private void GRSocketHandler_addUser(ApiRes state)
         {
-            
+            GetUsers();
         }
 
         public void GetDepts()
@@ -103,6 +105,31 @@ namespace GRCLNT
             GRSocketHandler.getDepts += GRSocketHandler_getDepts;
             GRSocketAPI.GetDepts();
         }
+
+        public void GetUsers()
+        {
+            GRSocketHandler.getUsers += GRSocketHandler_getUsers;
+            GRSocketAPI.GetUsers();
+        }
+
+        private void GRSocketHandler_getUsers(ApiRes state, List<User> users)
+        {
+            GRSocketHandler.getUsers -= GRSocketHandler_getUsers;
+            switch (state)
+            {
+                case ApiRes.OK:
+                    curUsersBd = users;
+                    groupTvBd[0].Update(curDeptsBd, curUsersBd);
+                    break;
+                case ApiRes.FAILED:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public List<User> curUsersBd { get; set; } = new List<User>();
+        public User curSelUserBd { get; set; } = new User();
 
         public List<Dept> curDeptsBd { get; set; } = new List<Dept>();
         public Dept curSelDeptBd { get; set; } = new Dept();
@@ -115,12 +142,20 @@ namespace GRCLNT
             {
                 case ApiRes.OK:
                     curDeptsBd = depts;
+                    groupTvBd[0].Update(curDeptsBd, curUsersBd);
                     break;
                 case ApiRes.FAILED:
                     break;
                 default:
                     break;
             }
+        }
+
+        public List<GroupTvNode> groupTvBd { get; set; } = new List<GroupTvNode>();
+
+        public void ClickItemCommand()
+        {
+
         }
     }
 }
