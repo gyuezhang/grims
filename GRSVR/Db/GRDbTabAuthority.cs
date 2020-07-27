@@ -18,6 +18,7 @@ namespace GRSVR
                                                       "foreign key(userid) references grims.user(id)," +
                                                       "foreign key(deptid) references grims.dept(id)" +
                                                       ") default charset=utf8mb4;");
+            GRDb.Exec("ALTER TABLE grims.authority ADD UNIQUE KEY(userid, deptid,module,authority);");
         }
 
         public static Tuple<bool, string> AddUser(Authority authority)

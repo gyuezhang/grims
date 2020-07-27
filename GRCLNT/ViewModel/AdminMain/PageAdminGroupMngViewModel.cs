@@ -298,15 +298,48 @@ namespace GRCLNT
             auth.auth = (Auth)Enum.Parse(typeof(Auth), (i / 7).ToString(), true);
             if (curSelGroup.Type == GroupType.Dept)
             {
+                if(bCheckedLst[i])
+                {
                 auth.userordeptid = curSelGroup.Id;
                 AddDeptAuth(auth);
+                }
+                else
+                {
+                    try
+                    {
+                        DelAuth(ausDept.Where(x => x.auth == auth.auth && x.module == auth.module).ToList()[0].id);
+
+                    }
+                    catch (Exception)
+                    {
+                        return;
+                    }
+                }
+                
             }
             else
             {
-                auth.userordeptid = curSelGroup.Id;
-                AddUserAuth(auth);
+
+                if (bCheckedLst[i])
+                {
+                    auth.userordeptid = curSelGroup.Id;
+                    AddUserAuth(auth);
+                }
+                else
+                {
+                    try
+                    {
+                    DelAuth(ausUser.Where(x => x.auth == auth.auth && x.module == auth.module).ToList()[0].id);
+
+                    }
+                    catch(Exception)
+                    {
+                        return;
+                    }
+                }
             }
         }
+
 
         public void AddDeptAuth(Authority auth)
         {
@@ -328,16 +361,19 @@ namespace GRCLNT
         private void GRSocketHandler_delAuthority(ApiRes state)
         {
             GRSocketHandler.delAuthority -= GRSocketHandler_delAuthority;
+            GetAuthority();
         }
 
         private void GRSocketHandler_addUserAuthority(ApiRes state)
         {
             GRSocketHandler.addUserAuthority -= GRSocketHandler_addUserAuthority;
+            GetAuthority();
         }
 
         private void GRSocketHandler_addDeptAuthority(ApiRes state)
         {
             GRSocketHandler.addDeptAuthority -= GRSocketHandler_addDeptAuthority;
+            GetAuthority();
         }
 
         public List<bool> bCheckedLst { get; set; } = new List<bool>(new bool[28]);
@@ -359,22 +395,23 @@ namespace GRCLNT
         private void GRSocketHandler_getUserAuthorities(ApiRes state, List<Authority> auths)
         {
             GRSocketHandler.getUserAuthorities -= GRSocketHandler_getUserAuthorities;
-            List<Authority> aus = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
+            ausUser = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
             bCheckedLst = new List<bool>(new bool[28]);
-            foreach (Authority a in aus)
+            foreach (Authority a in ausUser)
             {
-                bCheckedLst[(int)a.module*8 + (int)a.auth] = true;
+                bCheckedLst[(int)a.module + (int)a.auth*7] = true;
             }
         }
-
+        public List<Authority> ausDept = new List<Authority>();
+        public List<Authority> ausUser = new List<Authority>();
         private void GRSocketHandler_getDeptAuthorities(ApiRes state, List<Authority> auths)
         {
             GRSocketHandler.getDeptAuthorities -= GRSocketHandler_getDeptAuthorities;
-            List<Authority> aus = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
+            ausDept = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
             bCheckedLst = new List<bool>(new bool[28]);
-            foreach (Authority a in aus)
+            foreach (Authority a in ausDept)
             {
-                bCheckedLst[(int)a.module*8 + (int)a.auth] = true;
+                bCheckedLst[(int)a.module + (int)a.auth*7] = true;
             }
         }
     }
