@@ -4,10 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GRCLNT"
-             mc:Ignorable="d" 
+             xmlns:s="https://github.com/canton7/Stylet"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance local:PageAdminGroupMngViewModel}"  
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Red">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">
+            <Style.Resources>
+                <SolidColorBrush x:Key="brush" Color="Yellow"/>
+            </Style.Resources>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -20,6 +41,50 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-    </Grid>
+            <CheckBox Grid.Column="1" Grid.Row="1" Command="{s:Action CbClickCmd}" IsChecked="{Binding bCheckedLst[0]}" CommandParameter="0"/>
+            <CheckBox Grid.Column="2" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[1]}"  CommandParameter="1"/>
+        <CheckBox Grid.Column="3" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[2]}"  CommandParameter="2"/>
+        <CheckBox Grid.Column="4" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[3]}"  CommandParameter="3"/>
+        <CheckBox Grid.Column="5" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[4]}"  CommandParameter="4"/>
+        <CheckBox Grid.Column="6" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[5]}"  CommandParameter="5"/>
+        <CheckBox Grid.Column="7" Grid.Row="1" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[6]}"  CommandParameter="6"/>
+        <CheckBox Grid.Column="1" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[7]}"  CommandParameter="7"/>
+        <CheckBox Grid.Column="2" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[8]}"  CommandParameter="8"/>
+        <CheckBox Grid.Column="3" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[9]}"  CommandParameter="9"/>
+            <CheckBox Grid.Column="4" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[10]}"  CommandParameter="10"/>
+        <CheckBox Grid.Column="5" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[11]}"  CommandParameter="11"/>
+        <CheckBox Grid.Column="6" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[12]}"  CommandParameter="12"/>
+        <CheckBox Grid.Column="7" Grid.Row="2" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[13]}"  CommandParameter="13"/>
+        <CheckBox Grid.Column="1" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[14]}"  CommandParameter="14"/>
+        <CheckBox Grid.Column="2" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[15]}"  CommandParameter="15"/>
+        <CheckBox Grid.Column="3" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[16]}"  CommandParameter="16"/>
+        <CheckBox Grid.Column="4" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[17]}"  CommandParameter="17"/>
+        <CheckBox Grid.Column="5" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[18]}"  CommandParameter="18"/>
+        <CheckBox Grid.Column="6" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[19]}"  CommandParameter="19"/>
+        <CheckBox Grid.Column="7" Grid.Row="3" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[20]}"  CommandParameter="20"/>
+        <CheckBox Grid.Column="1" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[21]}"  CommandParameter="21"/>
+        <CheckBox Grid.Column="2" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[22]}"  CommandParameter="22"/>
+        <CheckBox Grid.Column="3" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[23]}"  CommandParameter="23"/>
+        <CheckBox Grid.Column="4" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[24]}"  CommandParameter="24"/>
+        <CheckBox Grid.Column="5" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[25]}"  CommandParameter="25"/>
+        <CheckBox Grid.Column="6" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[26]}"  CommandParameter="26"/>
+        <CheckBox Grid.Column="7" Grid.Row="4" Command="{s:Action CbClickCmd}"  IsChecked="{Binding bCheckedLst[27]}"  CommandParameter="27"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="机井"/>                                    
+        <TextBlock Grid.Column="2" Grid.Row="0" Text="企业井"/>                                   
+        <TextBlock Grid.Column="3" Grid.Row="0" Text="控沉"/>
+        <TextBlock Grid.Column="4" Grid.Row="0" Text="地下水动态"/>
+        <TextBlock Grid.Column="5" Grid.Row="0" Text="地下水工程"/>
+        <TextBlock Grid.Column="6" Grid.Row="0" Text="水文地质"/>
+        <TextBlock Grid.Column="7" Grid.Row="0" Text="法律法规"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="新建"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="删除"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="修改"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="查看"/>
+        </Grid>
+        <StackPanel Orientation="Vertical">
+            <Button Content="返回" HorizontalAlignment="Right" Margin="5" Command="{s:Action CancelEdtAuthCmd}"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

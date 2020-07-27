@@ -22,18 +22,18 @@ namespace GRSVR
 
         public static Tuple<bool, string> AddUser(Authority authority)
         {
-            string cmd = "insert into grims.authority (userid,deptid,module,authority) values('" + authority.userordeptid + "','0'" +
-                    ",'" + authority.module +
-                    "','" + authority.auth +
+            string cmd = "insert into grims.authority (userid,deptid,module,authority) values('" + authority.userordeptid + "','-1'" +
+                    ",'" + (int)authority.module +
+                    "','" + (int)authority.auth +
                     "');";
             return GRDb.Exec(cmd);
         }
 
         public static Tuple<bool, string> AddDept(Authority authority)
         {
-            string cmd = "insert into grims.authority (userid,deptid,module,authority) values('0','" + authority.userordeptid + "'" +
-                    ",'" + authority.module +
-                    "','" + authority.auth +
+            string cmd = "insert into grims.authority (userid,deptid,module,authority) values('-1','" + authority.userordeptid + "'" +
+                    ",'" + (int)authority.module +
+                    "','" + (int)authority.auth +
                     "');";
             return GRDb.Exec(cmd);
         }

@@ -117,18 +117,18 @@ namespace GRCLNT
             delAuthority(request.resState);
         }
 
-        public delegate void GetDeptAuthoritiesEventHandler(ApiRes state);
+        public delegate void GetDeptAuthoritiesEventHandler(ApiRes state, List<Authority> auths);
         public static event GetDeptAuthoritiesEventHandler getDeptAuthorities;
         public static void OnGetDeptAuthorities(GRSocketStringPackageInfo request)
         {
-            getDeptAuthorities(request.resState);
+            getDeptAuthorities(request.resState, JsonConvert.DeserializeObject<List<Authority>>(request.Parameters));
         }
 
-        public delegate void GetUserAuthoritiesEventHandler(ApiRes state);
+        public delegate void GetUserAuthoritiesEventHandler(ApiRes state, List<Authority> auths);
         public static event GetUserAuthoritiesEventHandler getUserAuthorities;
         public static void OnGetUserAuthorities(GRSocketStringPackageInfo request)
         {
-            getUserAuthorities(request.resState);
+            getUserAuthorities(request.resState, JsonConvert.DeserializeObject<List<Authority>>(request.Parameters));
         }
     }
 }

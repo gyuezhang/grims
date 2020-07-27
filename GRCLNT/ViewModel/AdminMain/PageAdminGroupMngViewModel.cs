@@ -1,5 +1,7 @@
 ﻿using Stylet;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace GRCLNT
@@ -195,11 +197,13 @@ namespace GRCLNT
         public void ClickItemCommand(GroupTvNode node)
         {
             curSelGroup = node;
+            EditGroup();
         }
 
         public bool CanEditGroup => curSelGroup.Id != 0 && curSelGroup.Type != GroupType.Company;
         public void EditGroup()
         {
+            GetAuthority();
             DeptAuthBtnVisi = Visibility.Visible;
             UserAuthBtnVisi = Visibility.Visible;
                addOrEdt = false;
@@ -276,6 +280,102 @@ namespace GRCLNT
         public void EdtDeptAuthCmd()
         {
             DeptAuthCtrlVisi = Visibility.Visible;
+        }
+
+        public void CancelEdtAuthCmd()
+        {
+
+            UserAuthCtrlVisi = Visibility.Collapsed;
+            DeptAuthCtrlVisi = Visibility.Collapsed;
+        }
+
+
+        public void CbClickCmd(string s)
+        {
+            int i = int.Parse(s);
+            Authority auth = new Authority();
+            auth.module = (Module)Enum.Parse(typeof(Module), (i % 7).ToString(), true);
+            auth.auth = (Auth)Enum.Parse(typeof(Auth), (i / 7).ToString(), true);
+            if (curSelGroup.Type == GroupType.Dept)
+            {
+                auth.userordeptid = curSelGroup.Id;
+                AddDeptAuth(auth);
+            }
+            else
+            {
+                auth.userordeptid = curSelGroup.Id;
+                AddUserAuth(auth);
+            }
+        }
+
+        public void AddDeptAuth(Authority auth)
+        {
+            GRSocketHandler.addDeptAuthority += GRSocketHandler_addDeptAuthority;
+            GRSocketAPI.AddDeptAuthority(auth);
+        }
+        public void AddUserAuth(Authority auth)
+        {
+            GRSocketHandler.addUserAuthority += GRSocketHandler_addUserAuthority;
+            GRSocketAPI.AddUserAuthority(auth);
+        }
+
+        public void DelAuth(int id)
+        {
+            GRSocketHandler.delAuthority += GRSocketHandler_delAuthority;
+            GRSocketAPI.DelAuthority(id);
+        }
+
+        private void GRSocketHandler_delAuthority(ApiRes state)
+        {
+            GRSocketHandler.delAuthority -= GRSocketHandler_delAuthority;
+        }
+
+        private void GRSocketHandler_addUserAuthority(ApiRes state)
+        {
+            GRSocketHandler.addUserAuthority -= GRSocketHandler_addUserAuthority;
+        }
+
+        private void GRSocketHandler_addDeptAuthority(ApiRes state)
+        {
+            GRSocketHandler.addDeptAuthority -= GRSocketHandler_addDeptAuthority;
+        }
+
+        public List<bool> bCheckedLst { get; set; } = new List<bool>(new bool[28]);
+
+        public void GetAuthority()
+        {
+            if(curSelGroup.Type == GroupType.Dept)
+            {
+            GRSocketHandler.getDeptAuthorities += GRSocketHandler_getDeptAuthorities;
+            GRSocketAPI.GetDeptAuthorities();
+            }
+            else
+            {
+                GRSocketHandler.getUserAuthorities += GRSocketHandler_getUserAuthorities;
+                GRSocketAPI.GetUserAuthorities();
+            }
+        }
+
+        private void GRSocketHandler_getUserAuthorities(ApiRes state, List<Authority> auths)
+        {
+            GRSocketHandler.getUserAuthorities -= GRSocketHandler_getUserAuthorities;
+            List<Authority> aus = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
+            bCheckedLst = new List<bool>(new bool[28]);
+            foreach (Authority a in aus)
+            {
+                bCheckedLst[(int)a.module*8 + (int)a.auth] = true;
+            }
+        }
+
+        private void GRSocketHandler_getDeptAuthorities(ApiRes state, List<Authority> auths)
+        {
+            GRSocketHandler.getDeptAuthorities -= GRSocketHandler_getDeptAuthorities;
+            List<Authority> aus = auths.Where(x => x.userordeptid == curSelGroup.Id).ToList();
+            bCheckedLst = new List<bool>(new bool[28]);
+            foreach (Authority a in aus)
+            {
+                bCheckedLst[(int)a.module*8 + (int)a.auth] = true;
+            }
         }
     }
 }
