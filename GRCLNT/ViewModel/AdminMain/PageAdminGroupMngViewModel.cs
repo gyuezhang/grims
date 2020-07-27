@@ -1,5 +1,6 @@
 ﻿using Stylet;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace GRCLNT
 {
@@ -44,15 +45,19 @@ namespace GRCLNT
 
         public void SelectPageCmd(string s)
         {
+            DeptAuthBtnVisi = Visibility.Collapsed;
+            UserAuthBtnVisi = Visibility.Collapsed;
+            UserAuthCtrlVisi = Visibility.Collapsed;
+            DeptAuthCtrlVisi = Visibility.Collapsed;
             addOrEdt = true;
             int i = int.Parse(s);
             addPageBd = i;
-            if (addPageBd == 0)
+            if (addPageBd == 1)
             {
                 cDeptBd = new Dept();
                 addEdtDeptBtnTextBd = "添加部门";
             }
-            else
+            else if(addPageBd == 2)
             {
                 cUserBd = new User();
                 addEdtUserBtnTextBd = "添加用户";
@@ -195,16 +200,18 @@ namespace GRCLNT
         public bool CanEditGroup => curSelGroup.Id != 0 && curSelGroup.Type != GroupType.Company;
         public void EditGroup()
         {
-            addOrEdt = false;
+            DeptAuthBtnVisi = Visibility.Visible;
+            UserAuthBtnVisi = Visibility.Visible;
+               addOrEdt = false;
             if (curSelGroup.Type == GroupType.Dept)
             {
-                addPageBd = 0;
+                addPageBd = 1;
                 cDeptBd = curDeptsBd.Find(e => e.id == curSelGroup.Id);
                 addEdtDeptBtnTextBd = "保存部门";
             }
             else if (curSelGroup.Type == GroupType.User)
             {
-                addPageBd = 1;
+                addPageBd = 2;
                 cUserBd = curUsersBd.Find(e => e.id == curSelGroup.Id);
                 addEdtUserBtnTextBd = "保存用户";
             }
@@ -251,6 +258,24 @@ namespace GRCLNT
             {
                 EdtUserCmd();
             }
+        }
+
+        public Visibility UserAuthCtrlVisi { get; set; } = Visibility.Collapsed;
+        public Visibility DeptAuthCtrlVisi { get; set; } = Visibility.Collapsed;
+
+        public Visibility UserAuthBtnVisi { get; set; } = Visibility.Collapsed;
+        public Visibility DeptAuthBtnVisi { get; set; } = Visibility.Collapsed;
+
+        public bool CanEdtUserAuthCmd => UserAuthCtrlVisi == Visibility.Collapsed;
+        public void EdtUserAuthCmd()
+        {
+            UserAuthCtrlVisi = Visibility.Visible;
+        }
+
+        public bool CanEdtDeptAuthCmd => DeptAuthCtrlVisi == Visibility.Collapsed;
+        public void EdtDeptAuthCmd()
+        {
+            DeptAuthCtrlVisi = Visibility.Visible;
         }
     }
 }

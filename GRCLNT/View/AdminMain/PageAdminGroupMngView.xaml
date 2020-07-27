@@ -18,8 +18,8 @@
         <StackPanel Orientation="Vertical">
             
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="25,10">
-            <Button Content="添加部门" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="0"/>
-            <Button Content="添加用户" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="1"/>
+            <Button Content="添加部门" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="1"/>
+            <Button Content="添加用户" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="2"/>
             <Button Content="编辑" Margin="5" Command="{s:Action EditGroup}" />
             <Button Content="删除" Margin="5" Command="{s:Action DelGroup}" />
         </StackPanel>
@@ -52,8 +52,9 @@
             </TreeView>
             
             
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" >
                 <materialDesign:Transitioner SelectedIndex="{Binding addPageBd}">
+                    <Grid></Grid>
                     <local:PageAdminGroupMngDeptView/>
 
                     <local:PageAdminGroupMngUserView/>

@@ -11,6 +11,7 @@
              d:DataContext="{d:DesignInstance local:PageAdminGroupMngViewModel}"  
              d:DesignHeight="850" d:DesignWidth="800">
     <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Orientation="Vertical">
             <TextBox materialDesign:HintAssist.Hint="姓名" Text="{Binding cUserBd.name,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
             <ComboBox Grid.Row="2" Margin="25,5" materialDesign:HintAssist.Hint="部门" Foreground="White" FontSize="18" ItemsSource="{Binding curDeptsBd}" DisplayMemberPath="name" SelectedValuePath="." SelectedItem="{Binding curSelDeptBd,UpdateSourceTrigger=PropertyChanged}"/>
@@ -27,9 +28,17 @@
             <TextBox materialDesign:HintAssist.Hint="邮箱" Text="{Binding cUserBd.email,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
             <TextBox materialDesign:HintAssist.Hint="电话" Text="{Binding cUserBd.tel,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
             <TextBox materialDesign:HintAssist.Hint="备注" Text="{Binding cUserBd.remark,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
-            <StackPanel Orientation="Vertical">
-                <Button Content="{Binding addEdtUserBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtUserCmd}" HorizontalAlignment="Right" Margin="25,5"/>
-            </StackPanel>
-        </StackPanel>     
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Visibility="{Binding UserAuthBtnVisi}" Content="编辑权限" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action EdtUserAuthCmd}" HorizontalAlignment="Left" Margin="25,5"/>
+
+                <Button Grid.Column="1" Content="{Binding addEdtUserBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtUserCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+            </Grid>
+            <local:PageAdminGroupMngAuthView Visibility="{Binding UserAuthCtrlVisi}"  MinHeight="500" Margin="15"/>
+        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

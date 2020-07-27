@@ -10,19 +10,29 @@
              d:DataContext="{d:DesignInstance local:PageAdminGroupMngViewModel}"  
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBox materialDesign:HintAssist.Hint="部门名称" Text="{Binding cDeptBd.name,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="头像" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
-                <Image Source="/GRCLNT;component/Resource/Image/dept.png" Width="40" Height="40"/>
-                <TextBlock Text="{Binding cDeptDefaultAvatorBd}" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
-                <Button Content="浏览" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
-                <Button Content="上传" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
-            </StackPanel>
-            <TextBox Text="{Binding cDeptBd.remark}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="备注" Foreground="White" Margin="25,5" FontSize="18" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Button Content="{Binding addEdtDeptBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtDeptCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+                <TextBox materialDesign:HintAssist.Hint="部门名称" Text="{Binding cDeptBd.name,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="头像" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
+                    <Image Source="/GRCLNT;component/Resource/Image/dept.png" Width="40" Height="40"/>
+                    <TextBlock Text="{Binding cDeptDefaultAvatorBd}" Style="{DynamicResource MaterialDesignTextBlock}" Foreground="White" Margin="25,5" FontSize="18" />
+                    <Button Content="浏览" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
+                    <Button Content="上传" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
+                </StackPanel>
+                <TextBox Text="{Binding cDeptBd.remark}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="备注" Foreground="White" Margin="25,5" FontSize="18" />
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="编辑权限" Visibility="{Binding DeptAuthBtnVisi}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action EdtDeptAuthCmd}" HorizontalAlignment="Left" Margin="25,5"/>
+
+                    <Button Grid.Column="1" Content="{Binding addEdtDeptBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtDeptCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+                </Grid>
+                <local:PageAdminGroupMngAuthView Visibility="{Binding DeptAuthCtrlVisi}" MinHeight="500" Margin="15"/>
             </StackPanel>
-        </StackPanel>   
+        </ScrollViewer>
     </Grid>
 </UserControl>
