@@ -82,11 +82,12 @@ namespace GRSVR
 
         public static Tuple<bool, string> Edt(User user)
         {
+            int i = user.sex ? 0 : 1;
             return GRDb.Exec("update grims.user set deptid='" + user.deptid +
                 "',name='" + user.name +
                 "',pwd='" + user.passwd +
                 "',birthday='" + user.birthday +
-                "',sex='" + user.sex +
+                "',sex='" + i +
                 "',avator='" + user.avator +
                 "',email='" + user.email +
                 "',tel='" + user.tel +

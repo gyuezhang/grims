@@ -44,14 +44,37 @@ namespace GRCLNT
 
         public void SelectPageCmd(string s)
         {
+            addOrEdt = true;
             int i = int.Parse(s);
             addPageBd = i;
+            if (addPageBd == 0)
+            {
+                cDeptBd = new Dept();
+                addEdtDeptBtnTextBd = "添加部门";
+            }
+            else
+            {
+                cUserBd = new User();
+                addEdtUserBtnTextBd = "添加用户";
+            }
         }
 
-        public void DelDeptCmd()
+        public void DelDept(int id)
         {
             GRSocketHandler.delDept += GRSocketHandler_delDept;
-            GRSocketAPI.DelDept(3);
+            GRSocketAPI.DelDept(id);
+        }
+
+        public void DelUser(int id)
+        {
+            GRSocketHandler.delUser += GRSocketHandler_delUser;
+            GRSocketAPI.DelUser(id);
+        }
+
+        private void GRSocketHandler_delUser(ApiRes state)
+        {
+            GRSocketHandler.delUser -= GRSocketHandler_delUser;
+            GetUsers();
         }
 
         private void GRSocketHandler_delDept(ApiRes state)
@@ -72,11 +95,7 @@ namespace GRCLNT
         public void EdtDeptCmd()
         {
             GRSocketHandler.edtDept += GRSocketHandler_edtDept;
-            Dept dept = new Dept();
-            dept.id = 4;
-            dept.name = "jinmao";
-            dept.avator = -1;
-            GRSocketAPI.EdtDept(dept);
+            GRSocketAPI.EdtDept(cDeptBd);
         }
 
         private void GRSocketHandler_edtDept(ApiRes state)
@@ -95,8 +114,21 @@ namespace GRCLNT
             GRSocketAPI.AddUser(cUserBd);
         }
 
+        public void EdtUserCmd()
+        {
+            GRSocketHandler.edtUser += GRSocketHandler_edtUser;
+            GRSocketAPI.EdtUser(cUserBd);
+        }
+
+        private void GRSocketHandler_edtUser(ApiRes state)
+        {
+            GRSocketHandler.edtUser -= GRSocketHandler_edtUser;
+            GetUsers();
+        }
+
         private void GRSocketHandler_addUser(ApiRes state)
         {
+            GRSocketHandler.addUser -= GRSocketHandler_addUser;
             GetUsers();
         }
 
@@ -153,9 +185,72 @@ namespace GRCLNT
 
         public List<GroupTvNode> groupTvBd { get; set; } = new List<GroupTvNode>();
 
-        public void ClickItemCommand()
+        private GroupTvNode curSelGroup { get; set; } = new GroupTvNode();
+
+        public void ClickItemCommand(GroupTvNode node)
+        {
+            curSelGroup = node;
+        }
+
+        public bool CanEditGroup => curSelGroup.Id != 0 && curSelGroup.Type != GroupType.Company;
+        public void EditGroup()
+        {
+            addOrEdt = false;
+            if (curSelGroup.Type == GroupType.Dept)
+            {
+                addPageBd = 0;
+                cDeptBd = curDeptsBd.Find(e => e.id == curSelGroup.Id);
+                addEdtDeptBtnTextBd = "保存部门";
+            }
+            else if (curSelGroup.Type == GroupType.User)
+            {
+                addPageBd = 1;
+                cUserBd = curUsersBd.Find(e => e.id == curSelGroup.Id);
+                addEdtUserBtnTextBd = "保存用户";
+            }
+        }
+
+        public bool CanDelGroup => curSelGroup.Id != 0 && curSelGroup.Type != GroupType.Company;
+        public void DelGroup()
         {
 
+            if (curSelGroup.Type == GroupType.Dept)
+            {
+                DelDept(curSelGroup.Id);
+            }
+            else if (curSelGroup.Type == GroupType.User)
+            {
+                DelUser(curSelGroup.Id);
+            }
+        }
+
+        public string addEdtUserBtnTextBd { get; set; }
+        public string addEdtDeptBtnTextBd { get; set; }
+
+        private bool addOrEdt { get; set; }
+
+        public void AddEdtDeptCmd()
+        {
+            if (addOrEdt)
+            {
+                AddDeptCmd();
+            }
+            else
+            {
+                EdtDeptCmd();
+            }
+        }
+
+        public void AddEdtUserCmd()
+        {
+            if (addOrEdt)
+            {
+                AddUserCmd();
+            }
+            else
+            {
+                EdtUserCmd();
+            }
         }
     }
 }

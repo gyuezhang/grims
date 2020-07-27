@@ -19,9 +19,11 @@ namespace GRCLNT
         private int _id;
         private string _name;
         private List<GroupTvNode> _childs;
+        private bool _exp;
 
         public GroupTvNode()
         {
+            Exp = true;
             _childs = new List<GroupTvNode>();
         }
 
@@ -33,6 +35,8 @@ namespace GRCLNT
             Name = "宝坻区地下水资源办公室";
             foreach(Dept dept in depts)
             {
+                if (dept.id == -1)
+                    continue;
                 GroupTvNode deptNode = new GroupTvNode();
                 deptNode.Id = dept.id;
                 deptNode.Name = dept.name;
@@ -59,6 +63,15 @@ namespace GRCLNT
             set
             {
                 SetAndNotify(ref _type, value);
+            }
+        }
+
+        public bool Exp
+        {
+            get { return _exp; }
+            set
+            {
+                SetAndNotify(ref _exp, value);
             }
         }
 

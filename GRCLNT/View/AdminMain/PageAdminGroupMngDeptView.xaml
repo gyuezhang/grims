@@ -21,7 +21,7 @@
             </StackPanel>
             <TextBox Text="{Binding cDeptBd.remark}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="备注" Foreground="White" Margin="25,5" FontSize="18" />
             <StackPanel Orientation="Vertical">
-                <Button Content="添加部门" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddDeptCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+                <Button Content="{Binding addEdtDeptBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtDeptCmd}" HorizontalAlignment="Right" Margin="25,5"/>
             </StackPanel>
         </StackPanel>   
     </Grid>

@@ -28,7 +28,7 @@
             <TextBox materialDesign:HintAssist.Hint="电话" Text="{Binding cUserBd.tel,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
             <TextBox materialDesign:HintAssist.Hint="备注" Text="{Binding cUserBd.remark,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>
             <StackPanel Orientation="Vertical">
-                <Button Content="添加用户" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddUserCmd}" HorizontalAlignment="Right" Margin="25,5"/>
+                <Button Content="{Binding addEdtUserBtnTextBd}" Style="{DynamicResource MaterialDesignFlatButton}" Command="{s:Action AddEdtUserCmd}" HorizontalAlignment="Right" Margin="25,5"/>
             </StackPanel>
         </StackPanel>     
     </Grid>

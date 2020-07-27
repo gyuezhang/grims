@@ -10,38 +10,45 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:PageAdminGroupMngViewModel}"   
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
+            
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="25,10">
             <Button Content="添加部门" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="0"/>
             <Button Content="添加用户" Margin="5" Command="{s:Action SelectPageCmd}" CommandParameter="1"/>
+            <Button Content="编辑" Margin="5" Command="{s:Action EditGroup}" />
+            <Button Content="删除" Margin="5" Command="{s:Action DelGroup}" />
+        </StackPanel>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-            
-            <TreeView Width="250" Padding="0" Margin="3" BorderThickness="1" ItemsSource="{Binding groupTvBd}">
+
+
+            <TreeView x:Name="treeView" Grid.Column="0" HorizontalAlignment="Stretch"  Padding="0" Margin="15" BorderThickness="1" ItemsSource="{Binding groupTvBd}">
                 <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseLeftButtonDown">
-                        <i:InvokeCommandAction Command="{Binding ClickItemCommand}" CommandParameter="{Binding }" />
+                    <i:EventTrigger EventName="SelectedItemChanged">
+                        <i:InvokeCommandAction Command="{s:Action ClickItemCommand}" CommandParameter="{Binding ElementName=treeView,Path=SelectedItem}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type local:GroupTvNode}" ItemsSource="{Binding Path=Childs}">
+                    <HierarchicalDataTemplate DataType="{x:Type local:GroupTvNode}" ItemsSource="{Binding Path=Childs}" >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}"/>
-                            <StackPanel.ToolTip>
-                                <TextBlock VerticalAlignment="Center" Text="{Binding Name}" TextWrapping="Wrap" MaxWidth="200"/>
-                            </StackPanel.ToolTip>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" FontSize="18"/>
                         </StackPanel>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MaterialDesignTreeViewItem}">
+                        <Setter Property="IsExpanded" Value="{Binding Exp, Mode=TwoWay}" />
+                    </Style>
+                </TreeView.ItemContainerStyle>
             </TreeView>
             
             
