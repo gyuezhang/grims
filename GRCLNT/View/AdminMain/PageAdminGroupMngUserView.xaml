@@ -22,7 +22,7 @@
                 <Button Content="浏览" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
                 <Button Content="上传" Style="{DynamicResource MaterialDesignFlatButton}" Margin="5" />
             </StackPanel>
-            <PasswordBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  Foreground="White" local:PasswordHelper.Password="{Binding cUserBd.passwd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="25,5" FontSize="18" materialDesign:HintAssist.Hint="密码" HorizontalAlignment="Stretch" />
+                <PasswordBox  PasswordChanged="{s:Action pwdChangedCmd}" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  Foreground="White" local:PasswordHelper.Password="{Binding cUserBd.passwd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="25,5" FontSize="18" materialDesign:HintAssist.Hint="密码" HorizontalAlignment="Stretch" />
             <DatePicker SelectedDate="{Binding cUserBd.birthday , Mode=TwoWay, TargetNullValue={x:Static System:DateTime.Now}}"  Margin="15,8,15,8"  materialDesign:HintAssist.Hint="生日" FontSize="18"  />
             <ComboBox Grid.Row="2" Margin="25,5" materialDesign:HintAssist.Hint="性别" Foreground="White" FontSize="18" ItemsSource="{Binding deptLst}" SelectedItem="{Binding operUserBd.DeptName,UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox materialDesign:HintAssist.Hint="邮箱" Text="{Binding cUserBd.email,UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Foreground="White" Margin="25,5" FontSize="18" Grid.Column="0"/>

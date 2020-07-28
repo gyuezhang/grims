@@ -176,8 +176,29 @@ namespace GRCLNT
                 GRSocketAPI.AdminLogin(pwd);
             }
             else
-                ;
+            {
+                GRSocketHandler.login += GRSocketHandler_login;
+                GRSocketAPI.Login(name,pwd);
+            }
         }
+
+        private void GRSocketHandler_login(ApiRes state)
+        {
+            GRSocketHandler.login -= GRSocketHandler_login;
+            switch (state)
+            {
+                case ApiRes.OK:
+                    ;
+                    AdminLoginSuccess();
+                    break;
+                case ApiRes.FAILED:
+                    messageQueueBd.Enqueue("登录失败，请确认用户名或密码正确");
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void AdminLoginSuccess()
         {
             Cfg.Set(cfgBd);

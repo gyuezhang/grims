@@ -98,7 +98,7 @@ namespace GRCLNT
                     break;
             }
         }
-
+        public int edtPwdChanged { get; set; } = 0;
         public void EdtDeptCmd()
         {
             GRSocketHandler.edtDept += GRSocketHandler_edtDept;
@@ -116,15 +116,24 @@ namespace GRCLNT
             GRSocketHandler.addUser += GRSocketHandler_addUser;
             cUserBd.avator = -1;
             cUserBd.deptid = curSelDeptBd.id;
+            cUserBd.passwd = Enc.GetMd5Hash(cUserBd.passwd);
             cUserBd.sex = false;
             cUserBd.birthday = System.DateTime.Now;
             GRSocketAPI.AddUser(cUserBd);
         }
 
+        public void pwdChangedCmd()
+        {
+            edtPwdChanged++;
+        }
         public void EdtUserCmd()
         {
             GRSocketHandler.edtUser += GRSocketHandler_edtUser;
+            if (edtPwdChanged>1)
+                cUserBd.passwd = Enc.GetMd5Hash(cUserBd.passwd);
             GRSocketAPI.EdtUser(cUserBd);
+
+            edtPwdChanged = 1;
         }
 
         private void GRSocketHandler_edtUser(ApiRes state)
@@ -203,6 +212,7 @@ namespace GRCLNT
         public bool CanEditGroup => curSelGroup.Id != 0 && curSelGroup.Type != GroupType.Company;
         public void EditGroup()
         {
+            edtPwdChanged = 0;
             GetAuthority();
             DeptAuthBtnVisi = Visibility.Visible;
             UserAuthBtnVisi = Visibility.Visible;
