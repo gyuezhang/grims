@@ -50,32 +50,32 @@ namespace GRCLNT
 
         public void MenuBtnCmd(string cmdPara)
         {
-            SelectPage((E_Page)Enum.Parse(typeof(E_Page), cmdPara, true));
+            SelectPage((E_AdminPage)Enum.Parse(typeof(E_AdminPage), cmdPara, true));
         }
 
-        public void SelectPage(E_Page p)
+        public void SelectPage(E_AdminPage p)
         {
             menuBtnVisibilityBd = Visibility.Visible;
             settingBtnVisibilityBd = Visibility.Hidden;
             switch (p)
             {
-                case E_Page.Dashboard:
+                case E_AdminPage.Dashboard:
                     menuBtnIndexBd = 1;
                     mainVmBd = new PageAdminDashboardViewModel(this);
                     break;
-                case E_Page.GroupMng:
+                case E_AdminPage.GroupMng:
                     menuBtnIndexBd = 3;
                     mainVmBd = new PageAdminGroupMngViewModel(this);
                     break;
-                case E_Page.LogMng:
+                case E_AdminPage.LogMng:
                     menuBtnIndexBd = 5;
                     mainVmBd = new PageAdminLogMngViewModel(this);
                     break;
-                case E_Page.AnmMng:
+                case E_AdminPage.AnmMng:
                     menuBtnIndexBd = 7;
                     mainVmBd = new PageAdminAnmMngViewModel(this);
                     break;
-                case E_Page.Setting:
+                case E_AdminPage.Setting:
                     menuBtnVisibilityBd = Visibility.Hidden;
                     settingBtnVisibilityBd = Visibility.Visible;
                     mainVmBd = new PageAdminSettingViewModel(this);

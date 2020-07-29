@@ -203,6 +203,16 @@
     <Compile Include="ViewModel\AdminMain\PageAdminSettingViewModel.cs" />
     <Compile Include="ViewModel\AdminMain\WndAdminMainViewModel.cs" />
     <Compile Include="ViewModel\Login\WndLoginViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\CtrlAddrsBarViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageEntWellViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageGwDynaViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageGwProjViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageHomePageViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageHydroViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageLawViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageSediCtrlViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageSettingViewModel.cs" />
+    <Compile Include="ViewModel\UserMain\PageWellViewModel.cs" />
     <Compile Include="ViewModel\UserMain\WndUserMainViewModel.cs" />
     <Compile Include="View\AdminMain\PageAdminAnmMngView.xaml.cs">
       <DependentUpon>PageAdminAnmMngView.xaml</DependentUpon>
@@ -227,6 +237,36 @@
     </Compile>
     <Compile Include="View\AdminMain\PageAdminSettingView.xaml.cs">
       <DependentUpon>PageAdminSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\CtrlAddrsBarView.xaml.cs">
+      <DependentUpon>CtrlAddrsBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageEntWellView.xaml.cs">
+      <DependentUpon>PageEntWellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageGwDynaView.xaml.cs">
+      <DependentUpon>PageGwDynaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageGwProjView.xaml.cs">
+      <DependentUpon>PageGwProjView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageHomePageView.xaml.cs">
+      <DependentUpon>PageHomePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageHydroView.xaml.cs">
+      <DependentUpon>PageHydroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageLawView.xaml.cs">
+      <DependentUpon>PageLawView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageSediCtrlView.xaml.cs">
+      <DependentUpon>PageSediCtrlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageSettingView.xaml.cs">
+      <DependentUpon>PageSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageWellView.xaml.cs">
+      <DependentUpon>PageWellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMain\WndUserMainView.xaml.cs">
       <DependentUpon>WndUserMainView.xaml</DependentUpon>
@@ -286,6 +326,46 @@
       <DependentUpon>WndLoginView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\UserMain\CtrlAddrsBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageEntWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageGwDynaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageGwProjView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageHomePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageHydroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageLawView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageSediCtrlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserMain\WndUserMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

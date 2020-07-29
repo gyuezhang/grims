@@ -64,7 +64,7 @@
 
             <!--标题logo-->
             <Border Grid.Column="0" Background="#34000000">
-                <Image Source="/宝坻区地下水资源信息管理系统 - 客户端;component/Resource/Image/Logo.png" Margin="11"/>
+                <Image Source="/GRCLNT;component/Resource/Image/logo.png" Margin="11"/>
             </Border>
 
             <!--标题文字-->
@@ -238,7 +238,7 @@
                     <!--菜单栏/中部/中部菜单项-->
                     <Grid  Grid.Row="1">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="10"/>
+                            <!--<RowDefinition Height="10"/>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="64"/>
@@ -256,7 +256,26 @@
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="5"/>
                             <RowDefinition Height="64"/>
-                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="5"/>-->
+                            <RowDefinition Height="8"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="3"/>
                         </Grid.RowDefinitions>
                         <Border Width="Auto" Margin="3 0" Height="48" Background="#FF003C78" CornerRadius="3,3,3,3" Grid.Row="{Binding menuBtnIndexBd}" Visibility="{Binding menuBtnVisibilityBd}"/>
                         <Button Grid.Row="1"     Style="{StaticResource MenuBtn}" ToolTip="首页" Command="{s:Action MenuBtnCmd}" CommandParameter="HomePage" >
