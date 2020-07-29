@@ -186,6 +186,30 @@
     <Compile Include="Model\Dept.cs" />
     <Compile Include="Model\GroupTvNode.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="PageWell_AddAuto_View.xaml.cs">
+      <DependentUpon>PageWell_AddAuto_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_Edt_View.xaml.cs">
+      <DependentUpon>PageWell_Edt_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_Output_View.xaml.cs">
+      <DependentUpon>PageWell_Output_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_SearchLoc_View.xaml.cs">
+      <DependentUpon>PageWell_SearchLoc_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_SearchLst_View.xaml.cs">
+      <DependentUpon>PageWell_SearchLst_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_Search_View.xaml.cs">
+      <DependentUpon>PageWell_Search_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWell_State_View.xaml.cs">
+      <DependentUpon>PageWell_State_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageWell_AddManual_View.xaml.cs">
+      <DependentUpon>PageWell_AddManual_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util\ApiDef.cs" />
     <Compile Include="Resource\Comm\Bootstrapper.cs" />
     <Compile Include="Resource\Comm\PasswordHelper.cs" />
@@ -268,9 +292,44 @@
     <Compile Include="View\UserMain\PageWellView.xaml.cs">
       <DependentUpon>PageWellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserMain\PageWell_AddMtdSel_View.xaml.cs">
+      <DependentUpon>PageWell_AddMtdSel_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserMain\WndUserMainView.xaml.cs">
       <DependentUpon>WndUserMainView.xaml</DependentUpon>
     </Compile>
+    <Page Include="PageWell_AddAuto_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_Edt_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_Output_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_SearchLoc_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_SearchLst_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_Search_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWell_State_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_AddManual_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resource\Style\DefaultStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -366,6 +425,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\UserMain\PageWell_AddMtdSel_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserMain\WndUserMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -428,6 +491,29 @@
   <ItemGroup>
     <Resource Include="Resource\Image\dept.png" />
     <Resource Include="Resource\Image\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\bc_fetchwaterid.png" />
+    <Resource Include="Resource\Image\bc_usermng.png" />
+    <Resource Include="Resource\Image\BtnCard_Dashboard.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellAdd.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellAddAuto.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellAddHand.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellEdit.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellOutput.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellSearch.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellSearchCond.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellSearchLoc.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellSetting.png" />
+    <Resource Include="Resource\Image\BtnCard_EntWellStat.png" />
+    <Resource Include="Resource\Image\BtnCard_SysSetting.png" />
+    <Resource Include="Resource\Image\BtnCard_UserInfo.png" />
+    <Resource Include="Resource\Image\earth.png" />
+    <Resource Include="Resource\Image\loc.png" />
+    <Resource Include="Resource\Image\map.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
