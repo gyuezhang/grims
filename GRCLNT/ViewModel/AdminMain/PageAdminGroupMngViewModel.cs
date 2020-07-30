@@ -136,7 +136,7 @@ namespace GRCLNT
             edtPwdChanged = 1;
         }
 
-        private void GRSocketHandler_edtUser(ApiRes state)
+        private void GRSocketHandler_edtUser(ApiRes state,User user)
         {
             GRSocketHandler.edtUser -= GRSocketHandler_edtUser;
             GetUsers();

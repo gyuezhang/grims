@@ -2,6 +2,7 @@
 using SuperSocket.SocketBase.Command;
 using SuperSocket.SocketBase.Protocol;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace GRSVR
 {
@@ -17,13 +18,14 @@ namespace GRSVR
             User user = JsonConvert.DeserializeObject<User>(string.Join("", requestInfo.Parameters));
             Tuple<bool, string> dbRes = GRDbTabUser.Edt(user);
 
+
             if (dbRes.Item1)
             {
-                session.Send(ApiId.EdtUser, ApiRes.OK, null, null);
+                session.Send(ApiId.Login, ApiRes.OK, JsonConvert.SerializeObject(GRDbTabUser.Get().Item2.Where(x => x.id == session.userId).ToList()[0]), null);
             }
             else
             {
-                session.Send(ApiId.EdtUser, ApiRes.FAILED, null, dbRes.Item2);
+                session.Send(ApiId.Login, ApiRes.FAILED, null, dbRes.Item2);
             }
         }
     }

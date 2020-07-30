@@ -182,7 +182,7 @@ namespace GRCLNT
             }
         }
 
-        private void GRSocketHandler_login(ApiRes state)
+        private void GRSocketHandler_login(ApiRes state, User user)
         {
             GRSocketHandler.login -= GRSocketHandler_login;
             switch (state)
@@ -197,6 +197,7 @@ namespace GRCLNT
                 default:
                     break;
             }
+            C_RT.user = user;
         }
 
         private void AdminLoginSuccess()

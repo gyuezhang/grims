@@ -23,7 +23,7 @@ namespace GRSVR
     public class GRSession : AppSession<GRSession>
     {
         public const string RESTMNT = "<RESTMNT>";
-        public int userId = 0;
+        public int userId = -1;
         public void Send(ApiId apiId, ApiRes res, string json, string exLog)
         {
             //Send

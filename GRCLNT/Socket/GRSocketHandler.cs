@@ -33,11 +33,11 @@ namespace GRCLNT
             adminResetPwd(request.resState);
         }
 
-        public delegate void LoginEventHandler(ApiRes state);
+        public delegate void LoginEventHandler(ApiRes state, User user);
         public static event LoginEventHandler login;
         public static void OnLogin(GRSocketStringPackageInfo request)
         {
-            login(request.resState);
+            login(request.resState, JsonConvert.DeserializeObject<User>(request.Parameters));
         }
 
         public delegate void AddDeptEventHandler(ApiRes state);
@@ -82,11 +82,11 @@ namespace GRCLNT
             delUser(request.resState);
         }
 
-        public delegate void EdtUserEventHandler(ApiRes state);
+        public delegate void EdtUserEventHandler(ApiRes state, User user);
         public static event EdtUserEventHandler edtUser;
         public static void OnEdtUser(GRSocketStringPackageInfo request)
         {
-            edtUser(request.resState);
+            edtUser(request.resState, JsonConvert.DeserializeObject<User>(request.Parameters));
         }
 
         public delegate void GetUsersEventHandler(ApiRes state, List<User> depts);

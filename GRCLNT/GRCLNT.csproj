@@ -186,25 +186,41 @@
     <Compile Include="Model\Dept.cs" />
     <Compile Include="Model\GroupTvNode.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="PageWell_AddAuto_View.xaml.cs">
+    <Compile Include="Util\C_RT.cs" />
+    <Compile Include="View\UserMain\Setting\PageSetting_EdtUserInfo_View.xaml.cs">
+      <DependentUpon>PageSetting_EdtUserInfo_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\Setting\PageSetting_ResetPwd_View.xaml.cs">
+      <DependentUpon>PageSetting_ResetPwd_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\Setting\PageSetting_SysSetting_View.xaml.cs">
+      <DependentUpon>PageSetting_SysSetting_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\Setting\PageSetting_UserInfo_View.xaml.cs">
+      <DependentUpon>PageSetting_UserInfo_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\Setting\PageSetting_VersionInfo_View.xaml.cs">
+      <DependentUpon>PageSetting_VersionInfo_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMain\PageWell_AddAuto_View.xaml.cs">
       <DependentUpon>PageWell_AddAuto_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_Edt_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_Edt_View.xaml.cs">
       <DependentUpon>PageWell_Edt_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_Output_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_Output_View.xaml.cs">
       <DependentUpon>PageWell_Output_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_SearchLoc_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_SearchLoc_View.xaml.cs">
       <DependentUpon>PageWell_SearchLoc_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_SearchLst_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_SearchLst_View.xaml.cs">
       <DependentUpon>PageWell_SearchLst_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_Search_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_Search_View.xaml.cs">
       <DependentUpon>PageWell_Search_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageWell_State_View.xaml.cs">
+    <Compile Include="View\UserMain\PageWell_State_View.xaml.cs">
       <DependentUpon>PageWell_State_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMain\PageWell_AddManual_View.xaml.cs">
@@ -286,7 +302,7 @@
     <Compile Include="View\UserMain\PageSediCtrlView.xaml.cs">
       <DependentUpon>PageSediCtrlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserMain\PageSettingView.xaml.cs">
+    <Compile Include="View\UserMain\Setting\PageSettingView.xaml.cs">
       <DependentUpon>PageSettingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMain\PageWellView.xaml.cs">
@@ -298,31 +314,51 @@
     <Compile Include="View\UserMain\WndUserMainView.xaml.cs">
       <DependentUpon>WndUserMainView.xaml</DependentUpon>
     </Compile>
-    <Page Include="PageWell_AddAuto_View.xaml">
+    <Page Include="View\UserMain\Setting\PageSetting_EdtUserInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_Edt_View.xaml">
+    <Page Include="View\UserMain\Setting\PageSetting_ResetPwd_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_Output_View.xaml">
+    <Page Include="View\UserMain\Setting\PageSetting_SysSetting_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_SearchLoc_View.xaml">
+    <Page Include="View\UserMain\Setting\PageSetting_UserInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_SearchLst_View.xaml">
+    <Page Include="View\UserMain\Setting\PageSetting_VersionInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_Search_View.xaml">
+    <Page Include="View\UserMain\PageWell_AddAuto_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageWell_State_View.xaml">
+    <Page Include="View\UserMain\PageWell_Edt_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_Output_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_SearchLoc_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_SearchLst_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_Search_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMain\PageWell_State_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -417,7 +453,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserMain\PageSettingView.xaml">
+    <Page Include="View\UserMain\Setting\PageSettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
